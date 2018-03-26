@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="doudizhu.Views.doudizhu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="625" Height="498">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="5"/> 
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="1" Height="30" Width="30" RadiusX="2" RadiusY="2" Stroke="White">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="{Binding UserImg}"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock Grid.Column="3" Text="{Binding UserID,StringFormat=ID:{0}}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+        <TextBlock Grid.Column="5" Text="{Binding CardWord,StringFormat=账号:{0}}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+        <TextBlock Grid.Column="7" Text="{Binding UserName,StringFormat=昵称:{0}}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+        <Grid Name="GridGame" Grid.ColumnSpan="9" Grid.Row="2" Width="600" Height="400"> 
+            
+        </Grid>
+        <Grid Grid.ColumnSpan="9" Grid.Row="4">
+            <Button Content="完成" x:Name="Over" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="33" Margin="198,6,0,0" Command="{Binding OverCommand}"/>
+            <Button Content="继续" x:Name="Continue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="33" Margin="339,6,0,0" Click="Continue_Click_1"/>
+        </Grid>
+    </Grid>
+</UserControl>

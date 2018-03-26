@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+                    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions">
+    
+    <!--验证错误模板样式 输入框共用-->
+    <ControlTemplate x:Key="TextBoxErrorTemplate">
+        <DockPanel>
+            <Ellipse 
+                       DockPanel.Dock="Right" 
+                       Margin="2,0"
+                       ToolTip="无效数据"
+                       Width="10" Height="10"            
+                >
+                <Ellipse.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#11FF1111" Offset="0" />
+                        <GradientStop Color="#FFFF0000" Offset="1" />
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <AdornedElementPlaceholder />
+        </DockPanel>
+    </ControlTemplate>
+    
+    <!--列表缓动效果样式 列表面板控件共用-->
+    <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+        <VirtualizingStackPanel IsItemsHost="True">
+            <i:Interaction.Behaviors>
+                <ei:FluidMoveBehavior AppliesTo="Children"/>
+            </i:Interaction.Behaviors>
+        </VirtualizingStackPanel>
+    </ItemsPanelTemplate>
+
+    <!--列表Template模板公共样式-->
+    <Style x:Key="listtemplate" TargetType="ListBox">
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <!--ListBox的第一种Template，定义ListBox自身外观-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <Border>
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerStyle}">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tags>
+  <Tag id="7" title="斗地主" weight="1"/>
+  <Tag id="3" title="英雄联盟" weight="3"/>
+  <Tag id="6" title="愤怒的小鸟" weight="5"/>
+  <Tag id="4" title="连连看" weight="2"/>
+  <Tag id="20" title="龙珠" weight="3"/>
+  <Tag id="17" title="欢乐斗地主" weight="4"/>
+  <Tag id="25" title="你画我猜" weight="6"/>
+  <Tag id="21" title="升级" weight="2"/>
+  <Tag id="23" title="穿越火线" weight="1"/>
+  <Tag id="18" title="中国象棋" weight="3"/>
+  <Tag id="16" title="西游记" weight="2"/>
+  <Tag id="26" title="三国杀" weight="6"/>
+  <Tag id="5" title="找茬" weight="4"/>
+  <Tag id="13" title="尘埃" weight="2"/>
+  <Tag id="14" title="使命召唤" weight="3"/>
+</Tags>

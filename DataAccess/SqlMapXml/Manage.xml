@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Manage"
+  xmlns="http://ibatis.apache.org/mapping"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!--模块配置-->  
+  <alias>
+     <typeAlias alias="NoticeInfo" type="DataAccess.Models.NoticeInfo"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="SelectAllNotice" class="NoticeInfo">
+      <result property="MsgID" column="ID"/>
+      <result property="MsgType" column="Msg_Type"/> 
+      <result property="MsgTitle" column="Msg_Title"/>    
+      <result property="MsgContent" column="Msg_Content"/>    
+      <result property="MsgPublish" column="Msg_Publish"/>
+    </resultMap> 
+  </resultMaps> 
+
+  <!--Statement配置-->
+  <statements>
+    <!--插入信息-->
+    <insert id="InsertNotice" parameterClass="NoticeInfo">
+      insert into noticeinfo (Msg_Type,Msg_Title,Msg_Content,Msg_Publish)
+      values(#MsgType#,#MsgTitle#,#MsgContent#,#MsgPublish#)
+    </insert>
+    <!--清空消息-->
+    <delete id="ClearNotice">
+      delete from noticeinfo
+    </delete>
+    <!--获取消息-->
+    <select id="GetAllMsg" resultMap="SelectAllNotice" resultClass="NoticeInfo">
+      select * from noticeinfo
+    </select>
+    <select id="GetGamePath" resultClass="string" parameterClass="string">
+      select Game_Path from gameinfo where ID=#id#
+    </select> 
+    <select id="GetGameTime" resultClass="string" parameterClass="string">
+      select Game_Time from gameinfo where ID=#id#
+    </select>
+  </statements>
+</sqlMap>

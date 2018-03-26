@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="MainWin"
+  xmlns="http://ibatis.apache.org/mapping"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!--模块配置-->
+  <alias>
+    <typeAlias alias="Main_UserInfo" type="DataAccess.Models.UserInfo"/>
+    <typeAlias alias="FriendInfo" type="DataAccess.Models.FriendInfo"/>
+    <typeAlias alias="AchieveInfo" type="DataAccess.Models.AchieveInfo"/>
+    <typeAlias alias="GameInfo" type="DataAccess.Models.GameInfo"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="SelectAllUser" class="Main_UserInfo">
+      <result property="UserID" column="ID"/>
+      <result property="CardWord" column="Card_Word"/>
+      <result property="UserName" column="User_Name"/>
+      <result property="PassWord" column="Pass_Word"/>
+      <result property="UserPicture" column="User_Picture"/>
+      <result property="UserMail" column="User_Mail"/>
+      <result property="RegTime" column="Reg_Time"/>
+      <result property="UserStatus" column="User_Status"/>
+    </resultMap>
+    <resultMap id="SelectAllFriend" class="FriendInfo">
+      <result property="ID" column="ID"/>
+      <result property="OneID" column="One_ID"/>
+      <result property="OneGroup" column="One_Group"/>
+      <result property="OtherID" column="Other_ID"/>
+      <result property="OtherGroup" column="Other_Group"/>
+    </resultMap>
+    <resultMap id="SelectAllAchieve" class="AchieveInfo">
+      <result property="UserLevel" column="User_Level"/>
+      <result property="UserRank" column="User_Rank"/>
+      <result property="UserAllScore" column="User_AllScore"/>
+      <result property="UserSingleScore" column="User_SingleScore"/>
+    </resultMap>
+    <resultMap id="SelectAllGame" class="GameInfo">
+      <result property="UserID" column="User_ID"/>
+      <result property="GameName" column="Game_Name"/>
+      <result property="GameTable" column="Game_Table"/>
+    </resultMap>
+  </resultMaps>
+
+  <!--Statement配置-->
+  <statements>
+    <!--========================连接大厅==================================-->
+    <!--根据账号查看状态-->
+    <select id="Status_IsY" resultMap="SelectAllUser" resultClass="Main_UserInfo" parameterClass="string">
+      <![CDATA[select * from userinfo where Card_Word=#id# and User_Status='Y']]>
+    </select>
+    <!--========================CardModule==============================-->
+    <!--获取好友ID与组ID-->
+    <select id="GetAllFriendByID" resultMap="SelectAllFriend" parameterClass="string">
+      <![CDATA[select * from friendinfo where One_ID=#id# or Other_ID=#id#]]>
+    </select>
+    <!--获取好友信息-->
+    <select id="GetAllUserByID" resultMap="SelectAllUser" parameterClass="List">
+      select * from userinfo where ID in
+      <iterate conjunction="," open="(" close=")">
+        #[].UserID#
+      </iterate>
+    </select>
+    <!--根据用户ID获取该用户所玩游戏-->
+    <select id="GetAllGameByID" resultMap="SelectAllGame" parameterClass="string">
+      <![CDATA[
+          select User_ID,gameinfo.Game_Name,gameinfo.Game_Table 
+             from usertogame join gameinfo on usertogame.Game_ID=gameinfo.ID 
+             where User_ID=#id#
+        ]]>
+    </select>
+    <!--根据游戏表与用户ID获取相应成就信息-->
+    <select id="GetAllAchieveByID" resultMap="SelectAllAchieve" parameterClass="GameInfo">
+      <![CDATA[
+         select User_Level,User_Rank,User_AllScore,User_SingleScore from $GameTable$ where User_ID=#UserID#
+         ]]>
+    </select>
+    <!--根据账号或昵称获得用户信息-->
+    <select id="GetUserByIDorName" resultMap="SelectAllUser" parameterClass="string">
+      <![CDATA[
+          select * from userinfo where Card_Word=#id# or User_Name=#id#
+          ]]>
+    </select>
+    <!--重置密码-->
+    <update id="ResetPassword" parameterClass="Hashtable">
+      <![CDATA[
+          update userinfo set Pass_Word=#NewPassWord# where Card_Word=#CardWord# and Pass_Word=#PassWord#
+          ]]>
+    </update>
+    <!--退出登录时更新状态-->
+    <update id="UpdateStatusN" parameterClass="string">
+      <![CDATA[
+          update userinfo set User_Status='N' where ID=#id#
+          ]]>
+    </update>
+    <!--删除好友-->
+    <delete id="DeleteFriend" parameterClass="Hashtable">
+      <![CDATA[
+          delete from friendinfo where (One_ID=#UserID# and Other_ID=#FriendID#) or (One_ID=#FriendID# and Other_ID=#UserID#) 
+          ]]>
+    </delete>
+    <!--移动好友-->
+    <update id="MoveFriend1" parameterClass="Hashtable">
+      <![CDATA[
+          update friendinfo set Other_Group=#GroupID# where One_ID=#UserID# and Other_ID=#FriendID#
+          ]]>
+    </update>
+    <!--移动好友2-->
+    <update id="MoveFriend2" parameterClass="Hashtable">
+      <![CDATA[
+          update friendinfo set One_Group=#GroupID# where One_ID=#FriendID# and Other_ID=#UserID#
+          ]]>
+    </update>
+    <!--对方已经同意，更新状态-->
+    <update id="UpdateAddFriendInfo" parameterClass="Hashtable">
+      <![CDATA[
+          update addfriendinfo set IsAgree='Y' where Add_From=#AddFrom# and Add_To=#AddTo#
+          ]]>
+    </update>
+    <!--判断好友请求记录是否已经存在-->
+    <select id="IsExistAddFriendInfo" resultClass="int" parameterClass="Hashtable">
+      <![CDATA[
+          select count(1) from addfriendinfo where Add_From=#AddFrom# and Add_To=#AddTo#
+        ]]>
+    </select>
+    <!--插入添加好友请求记录-->
+    <insert id="AddFriendInfo" parameterClass="Hashtable">
+      <![CDATA[
+          insert into addfriendinfo (Add_From,Add_To) values(#AddFrom#,#AddTo#) 
+          ]]>
+    </insert>
+    <!--好友请求同意后，获取双方各自信息-->
+    <select id="GetUserInfoByID" resultMap="SelectAllUser" parameterClass="ArrayList">
+      select * from userinfo where ID in
+      <iterate conjunction="," open="(" close=")">
+        #[]#
+      </iterate>
+    </select>
+    <!--查看friendinfo表中是否存在好友记录-->
+    <select id="IsExistFriendInfo" resultClass="int" parameterClass="Hashtable">
+      <![CDATA[
+        select count(1) from friendinfo where (One_ID=#OneID# and Other_ID=#OtherID#) or (One_ID=#OtherID# and Other_ID=#OneID#)
+       ]]>
+    </select>
+    <!--好友请求同意后，如果好友表中不存在记录，就将记录添加进好友关系映射表中-->
+    <insert id="InsertFriendInfo" parameterClass="Hashtable">
+      <![CDATA[
+          insert into friendinfo (One_ID,Other_ID) values(#OneID#,#OtherID#) 
+          ]]>
+    </insert>
+    <!--拒绝或添加好友成功后，删除addfriendinfo中记录-->
+    <delete id="DeleteAddFriendInfo" parameterClass="Hashtable">
+      <![CDATA[
+          delete from addfriendinfo where Add_From=#AddFrom# and Add_To=#AddTo#
+        ]]>
+    </delete>
+    <!--查询是否有用户请求加自己为好友-->
+    <select id="GetAddFromByAddTo" resultMap="SelectAllUser" resultClass="Main_UserInfo" parameterClass="string">
+      <![CDATA[
+          select * from userinfo join addfriendinfo on userinfo.ID=addfriendinfo.Add_From 
+             where addfriendinfo.Add_To=#id#
+        ]]>
+    </select>
+    <!--查看是否有自己添加别人为好友的请求且是否被处理了-->
+    <select id="GetAddToByAddFrom" resultMap="SelectAllUser" resultClass="Main_UserInfo" parameterClass="string">
+      <![CDATA[
+          select * from userinfo join addfriendinfo on userinfo.ID=addfriendinfo.Add_To
+             where addfriendinfo.Add_From=#id# and addfriendinfo.IsAgree='Y' 
+        ]]>
+    </select>
+    <!--存在自己添加别人为好友的请求且已经被处理了，删除该记录-->
+    <delete id="DeleteAgreeByAddFrom" parameterClass="string">
+      <![CDATA[
+          delete from addfriendinfo where Add_From=#id# and IsAgree='Y'
+        ]]>
+    </delete>
+    <!--查看是否存在用户与游戏映射关系记录-->
+    <select id="IsExistUserToGame" resultClass="int" parameterClass="Hashtable">
+      <![CDATA[
+          select count(*) from usertogame where User_ID=#UserID# and Game_ID=#GameID# 
+        ]]>
+    </select>
+    <!--用户与游戏关系映射表中插入记录-->
+    <insert id="InsertUserToGame" parameterClass="Hashtable">
+      <![CDATA[
+          insert into usertogame (User_ID,Game_ID) values(#UserID#,#GameID#) 
+          ]]>
+    </insert>
+  </statements>
+</sqlMap>

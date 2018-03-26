@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Games>
+  <Game id="1" title="斗地主" file="DouDiZhu.dll" type="热门" data="2013-08-15" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"
+         picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+         picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+         detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="2" title="欢乐斗地主" file="HuanLeDouDiZhu.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"
+         picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+         picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+         detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="3" title="你画我猜" file="NiHuaWoCai.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="4" title="对对碰" file="DuiDuiPeng.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片4.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="5" title="找茬" type="热门" file="ZhaoCha.dll" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片5.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="6" title="愤怒的小鸟" file="FenNuDeXiaoNiao.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="7" title="斗地主比赛" file="DouDiZhuBiSai.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="8" title="英雄联盟大赛" file="YingXiongLianMengDaSai.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="9" title="连连看刷分" file="LianlianKanShuaFen.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片4.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="10" title="找茬决斗" file="ZhaoChaJueDou.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片5.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="11" title="斗牛比赛" file="DouNiuBiSai.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="12" title="斗地主大赛" file="DouDiZhuDaSai.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="13" title="尘埃" file="ChenAi.dll"  type="热门" data="2013-08-15" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="14" title="使命召唤" file="ShiMingZhaoHuan.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片4.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="15" title="阿Q正传" file="AQZhengzhuan.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片5.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail="“欢乐斗牛世界大战”玩法在原有欢乐斗牛的基本玩法的基础上，除去庄家的设置，每局游戏中拿到最大牌型的人通吃全场，对局更刺激，游戏更爽快！
+
+牌型从小到大排序为：没牛-牛一-牛二……牛八-牛九-牛牛-四炸-五花牛-五小牛，具体牌型组成请参见欢乐斗牛原玩法游戏规则。
+每局游戏中牌型最大的玩家取得胜利，其他所有玩家算作本局失败。
+若两个或两个以上玩家取得相同的最大牌型，则多名玩家算作并列同时胜利。
+若当局所有玩家牌型均为无牛，则此时进行5张牌中最大一张牌的比较，大小次序为K-Q-J-10-9……A，若最大一张牌也相同则根据花色进行比较，大小次序为黑桃、红桃、梅花、方片。
+在欢乐斗牛游戏中，以欢乐积分计划中累计产生的积分欢乐豆做为游戏计分单位。
+
+具体胜利者的牌型倍数：
+牌型 五小牛 五花牛 四炸 牛牛 牛九到牛七 牛六到牛一 无牛
+倍数 8 5 4 3 2 1 1"/>
+  <Game id="16" title="西游记" file="XiYouJi.dll" type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="17" title="欢乐斗地主" file="HuanLeDouDiZhu.dll"  type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="18" title="中国象棋" file="ZhongGuoXiangQi.dll"  type="热门" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Hot/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="19" title="连连看" file="LianLianKan.dll" type="棋牌" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/ChessAndCard/Icon/图片6.jpg"
+        picpath1="pack://application:,,,/Games;component/Image/ChessAndCard/Picture/图片2.jpg"
+        picpath2="pack://application:,,,/Games;component/Image/ChessAndCard/Picture/图片2.jpg"
+        detail=""/>
+  <Game id="20" title="龙珠" file="LongZhu.dll" type="棋牌" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/ChessAndCard/Icon/图片7.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/ChessAndCard/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/ChessAndCard/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="21" title="升级" file="ShengJi.dll" type="棋牌" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/ChessAndCard/Icon/图片8.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/ChessAndCard/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/ChessAndCard/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="22" title="死神" file="SiShen.dll" type="棋牌" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/ChessAndCard/Icon/图片9.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/ChessAndCard/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/ChessAndCard/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="23" title="穿越火线" file="ChuanYueHuoXian.dll" type="棋牌" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/ChessAndCard/Icon/图片10.jpg"
+       picpath1="pack://application:,,,/Games;component/Image/ChessAndCard/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/ChessAndCard/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="25" title="你画我猜" file="NiHuaWoCai.dll" type="即时" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Immediate/Icon/图片11.jpg"
+               picpath1="pack://application:,,,/Games;component/Image/Immediate/Picture/图片2.jpg"
+         picpath2="pack://application:,,,/Games;component/Image/Immediate/Picture/图片2.jpg"
+         detail=""/>
+  <Game id="26" title="三国杀" file="SanGuoSha.dll" type="即时" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Immediate/Icon/图片12.jpg"
+            picpath1="pack://application:,,,/Games;component/Image/Immediate/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Immediate/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="27" title="大话西游" file="DaHuaXiYou.dll" type="即时" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Immediate/Icon/图片13.jpg"
+             picpath1="pack://application:,,,/Games;component/Image/Immediate/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Immediate/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="28" title="风云决" file="FengYunJue.dll" type="即时" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Immediate/Icon/图片14.jpg"
+             picpath1="pack://application:,,,/Games;component/Image/Immediate/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Immediate/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="29" title="拳皇" file="QuanHuang.dll" type="即时" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Immediate/Icon/图片15.jpg"
+            picpath1="pack://application:,,,/Games;component/Image/Immediate/Picture/图片2.jpg"
+            picpath2="pack://application:,,,/Games;component/Image/Immediate/Picture/图片2.jpg"
+            detail=""/>
+  <Game id="30" title="街头霸王" file="JieTouBaWang.dll" type="其他" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Other/Icon/图片16.jpg"
+           picpath1="pack://application:,,,/Games;component/Image/Other/Picture/图片2.jpg"
+         picpath2="pack://application:,,,/Games;component/Image/Other/Picture/图片2.jpg"
+         detail=""/>
+  <Game id="31" title="角斗士" file="JiaoDouShi.dll" type="其他" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Other/Icon/图片17.jpg"
+          picpath1="pack://application:,,,/Games;component/Image/Other/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Other/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="32" title="拯救" file="ZhengJiu.dll" type="其他" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Other/Icon/图片18.jpg"
+         picpath1="pack://application:,,,/Games;component/Image/Other/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Other/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="33" title="超级玛丽" file="ChaoJiMaLi.dll" type="其他" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Other/Icon/图片19.jpg"
+          picpath1="pack://application:,,,/Games;component/Image/Other/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Other/Picture/图片2.jpg"
+       detail=""/>
+  <Game id="34" title="坦克大战" file="TanKeDaZhan.dll" type="其他" data="2013-08-15"  icon="pack://application:,,,/Games;component/Image/Other/Icon/图片20.jpg"
+          picpath1="pack://application:,,,/Games;component/Image/Other/Picture/图片2.jpg"
+       picpath2="pack://application:,,,/Games;component/Image/Other/Picture/图片2.jpg"
+       detail=""/>
+</Games>

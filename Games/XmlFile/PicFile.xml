@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Pics>
+  <Pic id="27" picsrc="pack://application:,,,/Games;component/Image/PicShow/大话西游.jpg" title="大话西游"/>
+  <Pic id="8" picsrc="pack://application:,,,/Games;component/Image/PicShow/英雄联盟.jpg" title="英雄联盟大赛"/>
+  <Pic id="26" picsrc="pack://application:,,,/Games;component/Image/PicShow/三国杀.jpg" title="三国杀" />
+  <Pic id="1" picsrc="pack://application:,,,/Games;component/Image/PicShow/大家来找茬.jpg" title="欢乐大赛开启啦"/>
+  <Pic id="2" picsrc="pack://application:,,,/Games;component/Image/PicShow/斗地主.jpg" title="斗地主" />
+  <Pic id="14" picsrc="pack://application:,,,/Games;component/Image/PicShow/轩辕剑.jpg" title="使命召唤"/>
+</Pics>

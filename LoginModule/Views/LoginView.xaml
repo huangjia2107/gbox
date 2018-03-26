@@ -1,0 +1,257 @@
+﻿<UserControl x:Class="LoginModule.Views.LoginView"		
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+             xmlns:Helper="clr-namespace:Resources.Class;assembly=Resources"
+             xmlns:story="clr-namespace:ToolClass.StoryBoard;assembly=ToolClass"			             	 
+             mc:Ignorable="d" Height="250" Width="380">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--普通按钮样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/ButtonStyle.xaml"/>
+                <!--ComboBox样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/ComboBoxStyle.xaml"/>
+                <!--PasswordBox样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/PwBoxStyle.xaml"/>
+                <!--公共样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/PublicStyle.xaml" />
+                <!--总颜色样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/Themes/Colors.xaml"/>
+                <!--总文字定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/Themes/Texts.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Storyboard x:Key="Story_Login" story:StoryboardManager.ID="Story_Login"  FillBehavior="Stop">
+            	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse0" RepeatBehavior="8x">
+            		<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:2.6" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:5" Value="{x:Static Visibility.Hidden}"/>
+            	</ObjectAnimationUsingKeyFrames>
+            	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse1" RepeatBehavior="8x">
+            		<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:1.2" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:2.6" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:3.2" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:5" Value="{x:Static Visibility.Hidden}"/>
+            	</ObjectAnimationUsingKeyFrames>
+            	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse2" RepeatBehavior="8x">
+            		<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:1.8" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:2.6" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:3.2" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:3.8" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:5" Value="{x:Static Visibility.Hidden}"/>
+            	</ObjectAnimationUsingKeyFrames>
+            	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse3" RepeatBehavior="8x">
+            		<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:2.4" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:2.6" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:3.2" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:3.8" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:4.4" Value="{x:Static Visibility.Visible}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:5" Value="{x:Static Visibility.Hidden}"/>
+            	</ObjectAnimationUsingKeyFrames>
+            	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse0" RepeatBehavior="8x">
+            		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="195"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="195"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:5" Value="340"/>
+            	</DoubleAnimationUsingKeyFrames>
+            	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse1" RepeatBehavior="8x">
+            		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="179"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="179"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="179"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:5" Value="340"/>
+            	</DoubleAnimationUsingKeyFrames>
+            	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse2" RepeatBehavior="8x">
+            		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="162"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="162"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="162"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:3.8" Value="162"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:5" Value="340"/>
+            	</DoubleAnimationUsingKeyFrames>
+            	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse3" RepeatBehavior="8x">
+            		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="145"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:2.6" Value="145.25"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:3.2" Value="145.625"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:3.8" Value="145.8125"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:4.4" Value="146"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:5" Value="340"/>
+            	</DoubleAnimationUsingKeyFrames>
+            	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ChooseUser">
+            		<DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Collapsed}"/>
+            	</ObjectAnimationUsingKeyFrames>
+            	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="userPass">
+            		<DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Collapsed}"/>
+            	</ObjectAnimationUsingKeyFrames>
+            	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="checkBox">
+            		<DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Collapsed}"/>
+            	</ObjectAnimationUsingKeyFrames>
+            	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle">
+            		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="109"/>
+            	</DoubleAnimationUsingKeyFrames>
+            	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle1">
+            		<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+            		<EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="109"/>
+            	</DoubleAnimationUsingKeyFrames>
+            	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.HorizontalAlignment)" Storyboard.TargetName="rectangle1">
+            		<DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static HorizontalAlignment.Stretch}"/>
+            		<DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static HorizontalAlignment.Stretch}"/>
+            	</ObjectAnimationUsingKeyFrames>
+            	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button">
+            		<DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Hidden}"/>
+            	</ObjectAnimationUsingKeyFrames>
+            	<StringAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="textBlock">
+            		<DiscreteStringKeyFrame KeyTime="0:0:0.1" Value="用户登陆中..."/>
+            	</StringAnimationUsingKeyFrames>
+            	<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock1">
+            		<EasingColorKeyFrame KeyTime="0:0:0.8" Value="Transparent"/>
+            		<EasingColorKeyFrame KeyTime="0:0:1.6" Value="White"/>
+            	</ColorAnimationUsingKeyFrames>
+            	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock1">
+            		<DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Visible}"/>
+            	</ObjectAnimationUsingKeyFrames>
+            	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="cover">
+            		<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            	</ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+	<Border x:Name="backGround" BorderBrush="{StaticResource border}" BorderThickness="1" OpacityMask="Black">
+		<Grid x:Name="grid">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="32"/>
+				<RowDefinition Height="20"/>
+			</Grid.RowDefinitions>
+			<TextBlock x:Name="textBlock" Width="Auto" TextAlignment="Center" Text="{StaticResource login_text}" Foreground="White" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="0"/>
+			<Grid Grid.Row="1">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="135*"/>
+					<RowDefinition Height="30*"/>
+				</Grid.RowDefinitions>
+				<Rectangle x:Name="rectangle" Grid.Row="0" Stroke="{StaticResource border}" Margin="30,33,248,2" RadiusX="3" RadiusY="3" Width="100" Height="100" RenderTransformOrigin="0.5,0.5" >
+					<Rectangle.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform/>
+							<SkewTransform/>
+							<RotateTransform/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</Rectangle.RenderTransform>
+					<Rectangle.Fill>
+						<ImageBrush ImageSource="pack://application:,,,/Resources;component/Image/UserPic/Def/def.jpg"/>
+					</Rectangle.Fill>
+				</Rectangle>
+				<Rectangle x:Name="rectangle1" Grid.Row="0" Stroke="{StaticResource border}" Margin="30,33,248,2" RadiusX="3" RadiusY="3" Width="100" Height="100" RenderTransformOrigin="0.5,0.5" >
+					<Rectangle.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform/>
+							<SkewTransform/>
+							<RotateTransform/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</Rectangle.RenderTransform>
+					<Rectangle.Fill>
+						<ImageBrush ImageSource="{Binding (SelectedValue).ImageUrl, ElementName=ChooseUser}"/>
+					</Rectangle.Fill>
+				</Rectangle>
+				<ComboBox x:Name="ChooseUser" Grid.Row="0" HorizontalAlignment="Left" Height="30" Margin="145,35,0,0" VerticalAlignment="Top" Width="200" IsEditable="True" FontSize="16" 
+					DisplayMemberPath="CardWord"      
+					Text="{Binding CardWord}"
+					ItemsSource="{Binding AllUsers}"   
+                    Style="{StaticResource ComboBoxStyle1}"
+                    ItemContainerStyle="{StaticResource ComboBoxItemStyle}"
+                          ItemsPanel="{DynamicResource ItemsPanelTemplate1}" SelectedIndex="0"
+					/>
+				<PasswordBox x:Name="userPass" Grid.Row="0" HorizontalAlignment="Left" Height="30" Margin="145,77,0,0" VerticalAlignment="Top" Width="200" FontSize="16"
+					Style="{StaticResource PwBoxStyle}" 
+					Helper:PassWordBing.Attach="True"
+					Helper:PassWordBing.Password="{Binding (SelectedValue).Password, ElementName=ChooseUser}"/>
+                <CheckBox x:Name="checkBox" Grid.Row="0" Content="记住密码" HorizontalAlignment="Left" Height="17" Margin="144,117,0,0" VerticalAlignment="Top" Width="81" Foreground="White" FontSize="13" 
+					BorderBrush="{x:Null}" 
+					IsChecked="{Binding (SelectedValue).IsRemPass, ElementName=ChooseUser}"
+                    Command="{Binding RememberCommand}" 
+                    CommandParameter="{Binding Path=IsChecked,ElementName=checkBox}"
+                          />
+                <TextBlock x:Name="textBlock1" Grid.Row="1" Text="{Binding (SelectedValue).UserName, ElementName=ChooseUser}" Foreground="Transparent" TextAlignment="Center" FontSize="13.333" Visibility="Collapsed"/>
+			</Grid>
+			<Border Height="32" Background="{StaticResource bg_module}" Grid.Row="2">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="10"/>
+						<ColumnDefinition Width="30"/>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width="65"/>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width="30"/>
+						<ColumnDefinition Width="10"/>
+					</Grid.ColumnDefinitions>
+                    <Path Width="30" Height="20" Stretch="Fill" Fill="{StaticResource arrow}" Data="F1 M 39.8307,37.6042L 36.6641,34.4375L 25.1849,23.3542L 35.4766,23.3542L 50.5182,37.6042L 35.4766,51.8542L 25.1849,51.8542L 36.6641,40.7708L 39.8307,37.6042 Z " Grid.Column="5" Margin="0,6"/>
+					<Path Grid.Column="1" Width="30" Height="20" Stretch="Fill" Fill="{StaticResource arrow}" Data="F1 M 35.8724,37.6042L 39.0391,40.7708L 50.5182,51.8542L 40.2266,51.8542L 25.1849,37.6041L 40.2266,23.3542L 50.5182,23.3542L 39.0391,34.4375L 35.8724,37.6042 Z " Margin="0,6"/>
+					<Button x:Name="button" Width="65" Content="登陆平台" FontSize="14" Style="{StaticResource BtnStyle}" Grid.Column="3"
+						Command="{Binding LoginCommand}"
+						CommandParameter="{Binding ElementName=userPass}"/>
+
+                    <!-- 登陆故事版元素 -->
+					<Ellipse x:Name="ellipse0" Fill="#FFFFFFFF" HorizontalAlignment="Left" Height="7" Margin="5.5,12,0,0" VerticalAlignment="Top" Width="7" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" Grid.Column="1">
+						<Ellipse.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Ellipse.RenderTransform>
+					</Ellipse>
+					<Ellipse x:Name="ellipse1" Fill="#FFFFFFFF" HorizontalAlignment="Left" Height="7" Margin="5.5,12,0,0" VerticalAlignment="Top" Width="7" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" Grid.Column="1">
+						<Ellipse.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Ellipse.RenderTransform>
+					</Ellipse>
+					<Ellipse x:Name="ellipse2" Fill="#FFFFFFFF" HorizontalAlignment="Left" Height="7" Margin="5.5,12,0,0" VerticalAlignment="Top" Width="7" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" Grid.Column="1">
+						<Ellipse.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Ellipse.RenderTransform>
+					</Ellipse>
+					<Ellipse x:Name="ellipse3" Fill="#FFFFFFFF" HorizontalAlignment="Left" Height="7" Margin="5.5,12,0,0" VerticalAlignment="Top" Width="7" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" Grid.Column="1">
+						<Ellipse.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Ellipse.RenderTransform>
+					</Ellipse>
+				</Grid>
+			</Border>
+
+            <!--动画时起到覆盖作用-->
+			<Grid x:Name="cover" Grid.RowSpan="4" Visibility="Hidden">
+				<Rectangle Stroke="#FF01D328" StrokeThickness="0" Fill="#FFF9F6F6" Opacity="0"/>
+			</Grid>
+		</Grid>
+	</Border>
+</UserControl>
+

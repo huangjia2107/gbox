@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="nihuawocai.Views.nihuawocai"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="游戏名称：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+        <TextBlock Grid.Column="1" Grid.Row="0" Text="你画我猜" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="10,0"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="用户信息：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="头像：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="ID：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            <TextBlock Grid.Column="0" Grid.Row="2" Text="账号：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            <TextBlock Grid.Column="0" Grid.Row="3" Text="昵称：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            <Rectangle Grid.Column="1" Grid.Row="0" Height="70" Width="70" RadiusX="2" RadiusY="2" Stroke="White">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="{Binding UserImg}"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding UserID}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Margin="10,0"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding CardWord}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Margin="10,0"/>
+            <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding UserName}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Margin="10,0"/>
+        </Grid>
+    </Grid>
+</UserControl>

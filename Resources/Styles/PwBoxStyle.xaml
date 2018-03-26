@@ -1,0 +1,194 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Helper="clr-namespace:Resources.Class">
+
+    <ResourceDictionary.MergedDictionaries>
+        <!--PublicStyle样式定义-->
+        <ResourceDictionary Source="PublicStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <VisualBrush x:Key="PwBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
+        <VisualBrush.Visual>
+            <TextBlock FontSize="14" Text="密码" Foreground="Black"/>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+    <VisualBrush x:Key="NewPwBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
+        <VisualBrush.Visual>
+            <TextBlock FontSize="14" Text="新密码" Foreground="Black"/>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+    <VisualBrush x:Key="RePwBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
+        <VisualBrush.Visual>
+            <TextBlock FontSize="14" Text="确认密码" Foreground="Black"/>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+    <Style x:Key="PwBoxStyle" TargetType="PasswordBox">
+        <Setter Property="PasswordChar" Value="●"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Helper:PassWordBing.Attach" Value="True"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Border x:Name="Bd" BorderBrush="#FF7F9DB9" BorderThickness="1" Cursor="IBeam">
+                        <Grid x:Name="grid" Background="#FFFFFFFF">
+                            <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Helper:PassWordBing.Password" Value="">
+                            <Setter Property="Background" TargetName="Bd" Value="#FFFFFFFF"/>
+                            <Setter Property="Background" TargetName="grid" Value="{StaticResource PwBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Helper:PassWordBing.Password" Value="{x:Null}">
+                            <Setter Property="Background" TargetName="Bd" Value="#FFFFFFFF"/>
+                            <Setter Property="Background" TargetName="grid" Value="{StaticResource PwBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <!--验证输入数据样式-->
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip">
+                    <Setter.Value>
+                        <Binding  Path="(Validation.Errors).CurrentItem.ErrorContent"  RelativeSource="{x:Static RelativeSource.Self}" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="NewPwBoxStyle" TargetType="PasswordBox">
+        <Setter Property="PasswordChar" Value="●"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Helper:PassWordBing.Attach" Value="True"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Border x:Name="Bd" BorderBrush="#FF7F9DB9" BorderThickness="1" Cursor="IBeam">
+                        <Grid x:Name="grid" Background="#FFFFFFFF">
+                            <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Helper:PassWordBing.Password" Value="">
+                            <Setter Property="Background" TargetName="Bd" Value="#FFFFFFFF"/>
+                            <Setter Property="Background" TargetName="grid" Value="{StaticResource NewPwBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Helper:PassWordBing.Password" Value="{x:Null}">
+                            <Setter Property="Background" TargetName="Bd" Value="#FFFFFFFF"/>
+                            <Setter Property="Background" TargetName="grid" Value="{StaticResource NewPwBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <!--验证输入数据样式-->
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip">
+                    <Setter.Value>
+                        <Binding  Path="(Validation.Errors).CurrentItem.ErrorContent"  RelativeSource="{x:Static RelativeSource.Self}" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RePwBoxStyle" TargetType="PasswordBox">
+        <Setter Property="PasswordChar" Value="●"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Helper:PassWordBing.Attach" Value="True"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Border x:Name="Bd" BorderBrush="#FF7F9DB9" BorderThickness="1" Cursor="IBeam">
+                        <Grid x:Name="grid" Background="#FFFFFFFF">
+                            <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Helper:PassWordBing.Password" Value="">
+                            <Setter Property="Background" TargetName="Bd" Value="#FFFFFFFF"/>
+                            <Setter Property="Background" TargetName="grid" Value="{StaticResource RePwBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Helper:PassWordBing.Password" Value="{x:Null}">
+                            <Setter Property="Background" TargetName="Bd" Value="#FFFFFFFF"/>
+                            <Setter Property="Background" TargetName="grid" Value="{StaticResource RePwBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <!--验证输入数据样式-->
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip">
+                    <Setter.Value>
+                        <Binding  Path="(Validation.Errors).CurrentItem.ErrorContent"  RelativeSource="{x:Static RelativeSource.Self}" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="Data_PwBoxStyle" TargetType="PasswordBox">
+        <Setter Property="PasswordChar" Value="●"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Helper:PassWordBing.Attach" Value="True"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Border x:Name="Bd" BorderBrush="#FF7F9DB9" BorderThickness="1" Cursor="IBeam">
+                        <Grid x:Name="grid" Background="#FFFFFFFF">
+                            <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <!--验证输入数据样式-->
+        <!--<Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>-->
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip">
+                    <Setter.Value>
+                        <Binding  Path="(Validation.Errors).CurrentItem.ErrorContent"  RelativeSource="{x:Static RelativeSource.Self}" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

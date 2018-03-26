@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Data xmlns="">
+  <!--热门-->
+  <GameType name="hot">
+    <Hot id="1" title="斗地主"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"/>
+    <Hot id="2" title="欢乐斗地主"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"/>
+    <Hot id="3" title="你画我猜"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"/>
+    <Hot id="4" title="对对碰"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片4.jpg"/>
+    <Hot id="5" title="找茬"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片5.jpg"/>
+    <Hot id="6" title="斗牛"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"/>
+    <Hot id="7" title="斗地主"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"/>
+    <Hot id="8" title="英雄联盟"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"/>
+    <Hot id="9" title="连连看"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片4.jpg"/>
+    <Hot id="10" title="找茬"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片5.jpg"/>
+    <Hot id="11" title="斗牛"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"/>
+    <Hot id="12" title="斗地主"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"/>
+    <Hot id="13" title="英雄联盟"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"/>
+    <Hot id="14" title="连连看"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片4.jpg"/>
+    <Hot id="15" title="找茬"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片5.jpg"/>
+    <Hot id="16" title="斗牛"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"/>
+    <Hot id="17" title="斗地主"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"/>
+    <Hot id="18" title="英雄联盟"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"/>
+  </GameType>
+  <!--棋牌-->
+  <GameType name="chessAndCard">
+    <ChessAndCard id="19" title="对对碰"  icon="pack://application:,,,/Games;component/Image/ChessAndCard/Icon/图片6.jpg"/>
+    <ChessAndCard id="20" title="龙珠"  icon="pack://application:,,,/Games;component/Image/ChessAndCard/Icon/图片7.jpg"/>
+    <ChessAndCard id="21" title="升级"  icon="pack://application:,,,/Games;component/Image/ChessAndCard/Icon/图片8.jpg"/>
+    <ChessAndCard id="22" title="死神"  icon="pack://application:,,,/Games;component/Image/ChessAndCard/Icon/图片9.jpg"/>
+    <ChessAndCard id="23" title="穿越火线"  icon="pack://application:,,,/Games;component/Image/ChessAndCard/Icon/图片10.jpg"/>
+  </GameType>
+  <!--即时-->
+  <GameType name="immediate">
+    <Immediate id="25" title="你画我猜"  icon="pack://application:,,,/Games;component/Image/Immediate/Icon/图片11.jpg"/>
+    <Immediate id="26" title="三国杀"  icon="pack://application:,,,/Games;component/Image/Immediate/Icon/图片12.jpg"/>
+    <Immediate id="27" title="大话西游"  icon="pack://application:,,,/Games;component/Image/Immediate/Icon/图片13.jpg"/>
+    <Immediate id="28" title="风云决"  icon="pack://application:,,,/Games;component/Image/Immediate/Icon/图片14.jpg"/>
+    <Immediate id="29" title="拳皇"  icon="pack://application:,,,/Games;component/Image/Immediate/Icon/图片15.jpg" />
+  </GameType>
+  <!--其他-->
+  <GameType name="other">
+    <Other id="30" title="街头霸王"  icon="pack://application:,,,/Games;component/Image/Other/Icon/图片16.jpg" />
+    <Other id="31" title="角斗士"  icon="pack://application:,,,/Games;component/Image/Other/Icon/图片17.jpg" />
+    <Other id="32" title="拯救"  icon="pack://application:,,,/Games;component/Image/Other/Icon/图片18.jpg" />
+    <Other id="33" title="超级玛丽"  icon="pack://application:,,,/Games;component/Image/Other/Icon/图片19.jpg"/>
+    <Other id="34" title="坦克大战"  icon="pack://application:,,,/Games;component/Image/Other/Icon/图片20.jpg"/>
+  </GameType>
+</Data>

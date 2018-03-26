@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Data xmlns="">
+  <!--一周排行-->
+  <GameType name="week">
+    <Week id="1" rank="1" title="斗牛" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"/>
+    <Week id="2" rank="2" title="斗地主"  popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"/>
+    <Week id="3" rank="3" title="英雄联盟" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"/>
+    <Week id="4" rank="4" title="连连看" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片4.jpg"/>
+    <Week id="5" rank="5" title="找茬" popularity="65535"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片5.jpg"/>
+    <Week id="6" rank="6" title="斗牛" popularity="65535"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"/>
+    <Week id="7" rank="7" title="斗地主" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"/>
+    <Week id="8" rank="8" title="英雄联盟" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"/>
+    <Week id="9" rank="9" title="连连看" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片4.jpg"/>
+    <Week id="10" rank="10" title="找茬" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片5.jpg"/>
+    <Week id="11" rank="11" title="斗牛" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"/>
+    <Week id="12" rank="12" title="斗地主" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"/>
+    <Week id="13" rank="13" title="英雄联盟" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"/>
+    <Week id="14" rank="14" title="连连看" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片4.jpg"/>
+    <Week id="15" rank="15" title="找茬" popularity="65535" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片5.jpg"/>
+  </GameType>
+</Data>

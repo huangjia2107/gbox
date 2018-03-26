@@ -1,0 +1,16 @@
+﻿<Application x:Class="G_Box.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+				<!--ListBox样式定义--> 
+                <ResourceDictionary Source="PrivateResources/ListBoxViewStyle.xaml"/>       
+				<!--普通按钮样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/MessageBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

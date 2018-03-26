@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Data xmlns="">
+  <!--最新发布，公式最新发布的五个游戏-->
+  <GameType name="publish">
+    <Publish id="1" title="斗地主" type="棋牌" data="2013-08-13" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片1.jpg"/>
+    <Publish id="2" title="欢乐斗地主" type="其他"  data="2013-08-13" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片2.jpg"/>
+    <Publish id="3" title="你画我猜" type="即时"  data="2013-08-13" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片3.jpg"/>
+    <Publish id="4" title="对对碰" type="棋牌"  data="2013-08-13" icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片4.jpg"/>
+    <Publish id="5" title="找茬" type="即时"  data="2013-08-13"  icon="pack://application:,,,/Games;component/Image/Hot/Icon/图片5.jpg"/>
+  </GameType>
+</Data>

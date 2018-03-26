@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7779B6EA-971C-4763-AA54-149DA3CEB1D7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Games</RootNamespace>
+    <AssemblyName>Games</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XmlFile\GamesFile.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XmlFile\ClassifyGamesFile.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ChessAndCard\Icon\图片1.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片10.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片11.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片12.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片13.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片14.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片15.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片16.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片17.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片18.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片19.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片2.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片20.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片3.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片4.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片5.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片6.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片7.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片8.jpg" />
+    <Resource Include="Image\ChessAndCard\Icon\图片9.jpg" />
+    <Resource Include="Image\Hot\Icon\图片1.jpg" />
+    <Resource Include="Image\Hot\Icon\图片10.jpg" />
+    <Resource Include="Image\Hot\Icon\图片11.jpg" />
+    <Resource Include="Image\Hot\Icon\图片12.jpg" />
+    <Resource Include="Image\Hot\Icon\图片13.jpg" />
+    <Resource Include="Image\Hot\Icon\图片14.jpg" />
+    <Resource Include="Image\Hot\Icon\图片15.jpg" />
+    <Resource Include="Image\Hot\Icon\图片16.jpg" />
+    <Resource Include="Image\Hot\Icon\图片17.jpg" />
+    <Resource Include="Image\Hot\Icon\图片18.jpg" />
+    <Resource Include="Image\Hot\Icon\图片19.jpg" />
+    <Resource Include="Image\Hot\Icon\图片2.jpg" />
+    <Resource Include="Image\Hot\Icon\图片20.jpg" />
+    <Resource Include="Image\Hot\Icon\图片3.jpg" />
+    <Resource Include="Image\Hot\Icon\图片4.jpg" />
+    <Resource Include="Image\Hot\Icon\图片5.jpg" />
+    <Resource Include="Image\Hot\Icon\图片6.jpg" />
+    <Resource Include="Image\Hot\Icon\图片7.jpg" />
+    <Resource Include="Image\Hot\Icon\图片8.jpg" />
+    <Resource Include="Image\Hot\Icon\图片9.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片1.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片10.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片11.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片12.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片13.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片14.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片15.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片16.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片17.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片18.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片19.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片2.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片20.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片3.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片4.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片5.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片6.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片7.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片8.jpg" />
+    <Resource Include="Image\Immediate\Icon\图片9.jpg" />
+    <Resource Include="Image\Other\Icon\图片1.jpg" />
+    <Resource Include="Image\Other\Icon\图片10.jpg" />
+    <Resource Include="Image\Other\Icon\图片11.jpg" />
+    <Resource Include="Image\Other\Icon\图片12.jpg" />
+    <Resource Include="Image\Other\Icon\图片13.jpg" />
+    <Resource Include="Image\Other\Icon\图片14.jpg" />
+    <Resource Include="Image\Other\Icon\图片15.jpg" />
+    <Resource Include="Image\Other\Icon\图片16.jpg" />
+    <Resource Include="Image\Other\Icon\图片17.jpg" />
+    <Resource Include="Image\Other\Icon\图片18.jpg" />
+    <Resource Include="Image\Other\Icon\图片19.jpg" />
+    <Resource Include="Image\Other\Icon\图片2.jpg" />
+    <Resource Include="Image\Other\Icon\图片20.jpg" />
+    <Resource Include="Image\Other\Icon\图片3.jpg" />
+    <Resource Include="Image\Other\Icon\图片4.jpg" />
+    <Resource Include="Image\Other\Icon\图片5.jpg" />
+    <Resource Include="Image\Other\Icon\图片6.jpg" />
+    <Resource Include="Image\Other\Icon\图片7.jpg" />
+    <Resource Include="Image\Other\Icon\图片8.jpg" />
+    <Resource Include="Image\Other\Icon\图片9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XmlFile\WeekGamesFile.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XmlFile\TagsFile.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\PicShow\轩辕剑.jpg" />
+    <Resource Include="Image\PicShow\斗地主.jpg" />
+    <Resource Include="Image\PicShow\英雄联盟.jpg" />
+    <Resource Include="Image\PicShow\大家来找茬.jpg" />
+    <Resource Include="Image\PicShow\大话西游.jpg" />
+    <Resource Include="Image\PicShow\三国杀.jpg" />
+    <EmbeddedResource Include="XmlFile\PicFile.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XmlFile\PublishGamesFile.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Match\轩辕剑.jpg" />
+    <Resource Include="Image\Match\三国杀.jpg" />
+    <Resource Include="Image\Match\斗地主.jpg" />
+    <Resource Include="Image\Match\大家来找茬.jpg" />
+    <Resource Include="Image\Match\大话西游.jpg" />
+    <Resource Include="XmlFile\MatchGamesFile.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Hot\Picture\图片2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Immediate\Picture\图片2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Other\Picture\图片2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ChessAndCard\Picture\图片2.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

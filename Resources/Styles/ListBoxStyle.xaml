@@ -1,0 +1,676 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ListBox_ImagePanel"
+                    xmlns:class="clr-namespace:Resources.Class"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                    xmlns:Controls="clr-namespace:Resources.Controls"
+                    xmlns:ImgHelper="clr-namespace:Resources.Class">
+
+    <ResourceDictionary.MergedDictionaries>
+        <!--Tile样式定义-->
+        <ResourceDictionary Source="TileStyle.xaml"/>
+        <!--ScrollViewer样式定义-->
+        <ResourceDictionary Source="ScrollViewerStyle.xaml"/>
+        <!--Button样式定义-->
+        <ResourceDictionary Source="ButtonStyle.xaml"/>
+        <!--Expander样式定义-->
+        <ResourceDictionary Source="ExpanderStyle.xaml"/>
+        <!--Expander样式定义-->
+        <ResourceDictionary Source="MenuStyle.xaml"/>
+        <!--总颜色样式定义-->
+        <ResourceDictionary Source="./Themes/Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <class:BoolToVisibility  x:Key="_BoolToVisibilityConverter"/>
+    
+    <!--头像选择面板的ListBox样式-->
+    <Style x:Key="template" TargetType="ListBox">
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <Border BorderBrush="White" BorderThickness="1">
+                        <ItemsPresenter/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <local:LayPanel/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ListBoxItem" x:Key="itemTemplate">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <ContentPresenter/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <sys:Double x:Key="popUp_w">420</sys:Double>
+    <sys:Double x:Key="listBox_w">400</sys:Double>
+    <sys:Double x:Key="def_h">70</sys:Double>
+    <sys:Double x:Key="boy_h">130</sys:Double>
+    <sys:Double x:Key="girl_h">130</sys:Double>
+
+    <!--我的游戏 & 所有游戏 列表样式-->
+    <Style x:Key="gametemplate" TargetType="ListBox">
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <!--ListBox的第一种Template，定义ListBox自身外观-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <Border>
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerStyle}">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--ListBox的第二种Template，定义子元素的布局容器-->
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapPanel ItemHeight="Auto" HorizontalAlignment="Center" Width="255"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="myGameListStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="1,0,0,1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="border" Height="68" Width="83" IsEnabled="{Binding IsEnabled}" Tag="{Binding ModuleName}" BorderBrush="{StaticResource mouseover_bg}"  Padding="2" ToolTip="{Binding GameName}">
+                        <Border.ContextMenu>
+                            <ContextMenu Style="{StaticResource ContextMenuStyle}">
+                                <MenuItem Header="删除" Style="{StaticResource MenuItemStyle}" 
+                                          Command="{Binding Path=DeleteCommand}"/> 
+                            </ContextMenu>
+                        </Border.ContextMenu>
+                        
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding Path=OpenCommand}"
+                                                       CommandParameter="{Binding ElementName=border}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                        <Grid>
+                            <Rectangle RadiusX="2" RadiusY="2">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding Icon}"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Border Background="Black" Opacity="0.7" Height="16" VerticalAlignment="Bottom" CornerRadius="0,0,2,2">
+                                <TextBlock Text="{Binding GameName}" TextTrimming="WordEllipsis" Foreground="{StaticResource bg_text}" HorizontalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderThickness" TargetName="border" Value="2"/>
+                            <Setter Property="Padding" TargetName="border" Value="0"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="allGameListStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="1,0,0,1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="border" Height="68" Width="83" BorderBrush="{StaticResource mouseover_bg}"  Padding="2" Tag="{Binding XPath=@id}" ToolTip="{Binding XPath=@title}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding Path=DataContext.ShowCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" 
+                                                       CommandParameter="{Binding ElementName=border}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                        <Grid>
+                            <Rectangle RadiusX="2" RadiusY="2">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding XPath=@icon}"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Border Background="Black" Opacity="0.7" Height="16" VerticalAlignment="Bottom" CornerRadius="0,0,2,2">
+                                <TextBlock Text="{Binding XPath=@title}" TextTrimming="WordEllipsis" Foreground="{StaticResource bg_text}" HorizontalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderThickness" TargetName="border" Value="2"/>
+                            <Setter Property="Padding" TargetName="border" Value="0"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--好友列表样式-->
+    <Style x:Key="friliststyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="border" Height="26" Padding="3" CornerRadius="1" Width="210">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="3"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle x:Name="rectangle" ToolTip="{Binding FriendID}" Tag="{Binding FriendGroup}"  Grid.Column="0" Grid.RowSpan="1" RadiusX="1" RadiusY="1"  Height="20" Width="20">
+                                <Rectangle.Fill>
+                                    <VisualBrush>
+                                        <VisualBrush.Visual>
+                                            <Image Source="{Binding FriendImg}" ImgHelper:ImageAttached.Gray8="{Binding FriendStatus}"/>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <TextBlock Grid.Column="2" Grid.Row="0" Text="{Binding FriendName}" TextTrimming="WordEllipsis" Foreground="{StaticResource pop_bg_text}" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding FriendCard}" TextTrimming="WordEllipsis" Foreground="{StaticResource bg_text}" VerticalAlignment="Center"/>
+                            <StackPanel x:Name="button" Grid.Column="3" Grid.Row="1" Orientation="Horizontal">
+                                <Button Width="12" Height="12" Margin="0,0,3,0" Style="{StaticResource picBtnStyle}" ToolTip="邀请" Visibility="{Binding MenuIsEnabled,Mode=OneWay,Converter={StaticResource _BoolToVisibilityConverter}}">
+                                    <Path Width="10" Height="9" Stretch="Fill" Fill="#FFFFFFFF" Data="F1 M 52.2716,27.8072C 48.9356,24.164 42.0671,25.7204 38.0992,31.3618C 33.0737,25.3024 27.0713,24.164 23.7257,27.8072C 14.4142,37.9485 34.3451,52.5246 37.9599,54.1634L 38.0438,54.2109L 38.0438,54.1634C 41.6554,52.5246 61.5832,37.9485 52.2716,27.8072 Z "/>
+                                </Button>
+                                <Button Width="12" Height="12" Margin="0,0,3,0" Style="{StaticResource picBtnStyle}" ToolTip="删除"
+                                        Command="{Binding Path=DataContext.DeleteFRICommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"
+                                        CommandParameter="{Binding Path=ToolTip,ElementName=rectangle}">
+                                    <Path Width="10" Height="10" Stretch="Fill" Fill="#FFFFFFFF" Data="F1 M 26.9166,22.1667L 37.9999,33.25L 49.0832,22.1668L 53.8332,26.9168L 42.7499,38L 53.8332,49.0834L 49.0833,53.8334L 37.9999,42.75L 26.9166,53.8334L 22.1666,49.0833L 33.25,38L 22.1667,26.9167L 26.9166,22.1667 Z "/>
+                                </Button>
+                                <Button x:Name="moveFriend" Width="12" Height="12" Margin="0,0,3,0" Style="{StaticResource picBtnStyle}" ToolTip="移动到组"
+                                        Command="{Binding Path=DataContext.OpenPOPCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"
+                                        CommandParameter="{Binding ElementName=menu_Popup}">
+                                    <Path Width="8" Height="10" Stretch="Fill" Fill="{StaticResource arrow}" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                                </Button>
+                            </StackPanel>
+                            <Popup x:Name="menu_Popup" Placement="Right" PlacementTarget="{Binding ElementName=moveFriend}" StaysOpen="False" PopupAnimation="Slide"  AllowsTransparency="True"> 
+                                <Border BorderBrush="{StaticResource border}" BorderThickness="1" CornerRadius="1" Width="60" Height="75" Background="{StaticResource bg_module}">
+                                    <StackPanel>
+                                        <Button Margin="0,3,0,0" Height="20" Width="Auto" Foreground="{StaticResource bg_text}" Style="{StaticResource picBtnStyle}" Content="我的好友"
+                                                Command="{Binding Path=DataContext.MoveToFriCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"
+                                                CommandParameter="{Binding ElementName=rectangle}"/>
+                                        <Button Margin="0,3,0,0" Height="20" Width="Auto" Foreground="{StaticResource bg_text}" Style="{StaticResource picBtnStyle}" Content="我的家族"
+                                                Command="{Binding Path=DataContext.MoveToFamCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"
+                                                CommandParameter="{Binding ElementName=rectangle}"/>
+                                        <Button Margin="0,3,0,0" Height="20" Width="Auto" Foreground="{StaticResource bg_text}" Style="{StaticResource picBtnStyle}" Content="黑名单"
+                                                Command="{Binding Path=DataContext.MoveToBlaCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"
+                                                CommandParameter="{Binding ElementName=rectangle}"/>
+                                    </StackPanel>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Height" Value="46"/>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource mouseover_bg}"/>
+                            <Setter TargetName="rectangle" Property="Grid.RowSpan" Value="2"/>
+                            <Setter TargetName="rectangle" Property="Height" Value="40"/>
+                            <Setter TargetName="rectangle" Property="Width" Value="40"/>
+                            <Setter TargetName="rectangle" Property="RadiusX" Value="2"/>
+                            <Setter TargetName="rectangle" Property="RadiusY" Value="2"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--查找好友结果列表样式-->
+    <Style x:Key="friseachliststyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="ToolTip" Value="{Binding ResultCard}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border  x:Name="border" Padding="2" SnapsToDevicePixels="true" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle x:Name="rectangle" Tag="{Binding ResultID}" Grid.Column="0" Height="20" Width="20" Stroke="{StaticResource border}" RadiusX="1" RadiusY="1">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding ResultImg}" ImgHelper:ImageAttached.Gray8="{Binding ResultIsOnline}"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <TextBlock Grid.Column="2" Text="{Binding ResultName}" TextTrimming="WordEllipsis" Foreground="{StaticResource bg_text}" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                            <Button Grid.Column="3" Style="{StaticResource picBtnStyle}" ToolTip="添加" Visibility="{Binding ResultIsCanAdd,Mode=OneWay,Converter={StaticResource _BoolToVisibilityConverter}}" 
+                                    Command="{Binding Path=DataContext.AddCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" 
+                                    CommandParameter="{Binding ElementName=rectangle}">  
+                                <Path Fill="{StaticResource arrow}" Stretch="Fill" Height="16" Width="16" Data="F1 M 35,19L 41,19L 41,35L 57,35L 57,41L 41,41L 41,57L 35,57L 35,41L 19,41L 19,35L 35,35L 35,19 Z "/>
+                            </Button>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource mouseover_bg}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--成就列表样式-->
+    <Style x:Key="successliststyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="border" BorderBrush="{StaticResource border}" BorderThickness="1" CornerRadius="1" Background="{StaticResource tool_bg}" Margin="2" Padding="3">
+                        <StackPanel>
+                            <Grid Height="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="游戏：" Foreground="{StaticResource bg_text}" VerticalAlignment="Center" TextTrimming="WordEllipsis">
+                                    <Run Text="{Binding GameName}" Foreground="{StaticResource pop_bg_text}"/>
+                                </TextBlock>
+                                <TextBlock Grid.Column="1" Text="等级：" Foreground="{StaticResource bg_text}" HorizontalAlignment="Right" VerticalAlignment="Center" TextTrimming="WordEllipsis">
+                                    <Run Text="{Binding Level}" Foreground="{StaticResource pop_bg_text}"/>
+                                </TextBlock>
+                            </Grid>
+                            <Rectangle Height="1" Stroke="{StaticResource border}" Width="215"/>
+                            <Grid Height="56" Margin="0,3">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="积分排名：" Foreground="{StaticResource bg_text}" VerticalAlignment="Center" TextTrimming="WordEllipsis">
+                                    <Run Text="{Binding Rank}" Foreground="{StaticResource pop_bg_text}"/>
+                                </TextBlock>
+                                <TextBlock Grid.Row="1" Text="累计积分：" Foreground="{StaticResource bg_text}" VerticalAlignment="Center" TextTrimming="WordEllipsis">
+                                    <Run Text="{Binding Total}" Foreground="{StaticResource pop_bg_text}"/>
+                                </TextBlock>
+                                <TextBlock Grid.Row="2" Text="单次最高积分：" Foreground="{StaticResource bg_text}" VerticalAlignment="Center" TextTrimming="WordEllipsis">
+                                    <Run Text="{Binding Single}" Foreground="{StaticResource pop_bg_text}"/>
+                                </TextBlock>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource mouseover_bg}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--消息列表样式-->
+    <Style x:Key="msgliststyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="border" BorderBrush="{StaticResource border}" BorderThickness="1" CornerRadius="1" Background="{StaticResource tool_bg}" Margin="2" Padding="3">
+                        <Grid Height="40">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                            <Path Grid.Column="0" Grid.RowSpan="2"  Height="25" Width="25" HorizontalAlignment="Center" Stretch="Fill" Fill="{StaticResource arrow}" Data="{Binding PathData}"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MsgTitle}" ToolTip="{Binding MsgTitle}" Foreground="{StaticResource pop_bg_text}" TextTrimming="WordEllipsis" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="来自：" Foreground="{StaticResource bg_text}" TextTrimming="WordEllipsis" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Run Text="{Binding MsgPublish}" Foreground="{StaticResource pop_bg_text}"/>
+                            </TextBlock>
+                            <Grid x:Name="dealGrid" Grid.Column="2" Grid.RowSpan="2" Tag="{Binding MsgInfo}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="{Binding SecondRow}"/>
+                                    <RowDefinition Height="{Binding ThirdRow}"/>
+                                </Grid.RowDefinitions>
+                                <Button Grid.Row="0" Height="12" Width="12" Style="{StaticResource picBtnStyle}" ToolTip="忽略"
+                                        Command="{Binding Path=DataContext.IgnoreMsgCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"
+                                        CommandParameter="{Binding Path=Tag,ElementName=dealGrid}">
+                                    <Path Height="10" Width="10" Stretch="Fill" Fill="White" Data="F1 M 26.9166,22.1667L 37.9999,33.25L 49.0832,22.1668L 53.8332,26.9168L 42.7499,38L 53.8332,49.0834L 49.0833,53.8334L 37.9999,42.75L 26.9166,53.8334L 22.1666,49.0833L 33.25,38L 22.1667,26.9167L 26.9166,22.1667 Z "/>
+                                </Button>
+                                <Button x:Name="scanBtn" Grid.Row="1" Height="12" Width="12" Style="{StaticResource picBtnStyle}" ToolTip="查看"
+                                        Command="{Binding Path=DataContext.OpenPOPCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"
+                                        CommandParameter="{Binding ElementName=content_Popup}">
+                                    <Path Height="10" Width="8" Stretch="Fill" Fill="White" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                                </Button>
+                                <Button Grid.Row="2" Height="12" Width="12" Style="{StaticResource picBtnStyle}" ToolTip="同意"
+                                        Command="{Binding Path=DataContext.AgreeAddCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"
+                                        CommandParameter="{Binding Path=Tag,ElementName=dealGrid}">
+                                    <Path Height="9" Width="12" Stretch="Fill" Fill="White" Data="F1 M 23.7501,33.25L 34.8334,44.3333L 52.2499,22.1668L 56.9999,26.9168L 34.8334,53.8333L 19.0001,38L 23.7501,33.25 Z "/>
+                                </Button>
+                                <Popup x:Name="content_Popup" Placement="Right" PlacementTarget="{Binding ElementName=scanBtn}" StaysOpen="False" PopupAnimation="Slide"  AllowsTransparency="True">
+                                    <Border BorderBrush="{StaticResource border}" BorderThickness="1" CornerRadius="3" Height="183" Width="208" Background="{StaticResource bg_module}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="25"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <!--标题栏-->
+                                            <Grid Grid.Row="0" Background="{StaticResource tilebtn_bg}">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="2"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="33"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="1" Text="消息内容:" VerticalAlignment="Center" Foreground="{StaticResource bg_text}"/>
+                                                <Button Grid.Column="2" Height="18" Width="33" Style="{StaticResource SysCloseBtn}" VerticalAlignment="Top"
+                                                    Command="{Binding Path=DataContext.OpenPOPCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}"
+                                                    CommandParameter="{Binding ElementName=content_Popup}"/>
+                                            </Grid>
+                                            <ScrollViewer Margin="3,3,0,5"  Grid.Row="1" Height="150" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Template="{StaticResource ScrollViewerStyle}">
+                                                <TextBlock   Text="       "  HorizontalAlignment="Stretch" TextWrapping="Wrap">
+                                                    <Run Text="{Binding MsgContent}" FontSize="13" Foreground="{StaticResource bg_text}"/>
+                                                </TextBlock>
+                                            </ScrollViewer>
+                                        </Grid>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource mouseover_bg}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--最新发布和比赛公布列表样式-->
+    <Style x:Key="publishListTemplate" TargetType="ListBox">
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <!--ListBox的第一种Template，定义ListBox自身外观-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <Border>
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerStyle}">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--ListBox的第二种Template，定义子元素的布局容器-->
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapPanel ItemHeight="Auto" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="publishListStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="5,0,0,0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="border" Height="120" Width="110" CornerRadius="2" Padding="2" Tag="{Binding XPath=@id}" ToolTip="{Binding XPath=@title}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding Path=DataContext.ShowCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" 
+                                                       CommandParameter="{Binding ElementName=border}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="14"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="14"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Grid.Row="0" Stroke="White" RadiusX="2" RadiusY="2">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding XPath=@icon}"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <TextBlock Grid.Row="2" Text="{Binding XPath=@type,StringFormat=[{0}]}" Foreground="{StaticResource bg_text}" TextTrimming="WordEllipsis">
+                                <Run Text="{Binding XPath=@title}"/>
+                            </TextBlock>
+                            <TextBlock Grid.Row="4" Text="[发布]" Foreground="{StaticResource bg_text}" TextTrimming="WordEllipsis">
+                                <Run Text="{Binding XPath=@data}"/>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource mouseover_bg}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="matchListStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="5,0,0,0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="border" Height="106" Width="110" CornerRadius="2" Padding="2" Tag="{Binding XPath=@id}" ToolTip="{Binding XPath=@title}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding Path=DataContext.ShowCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" 
+                                                       CommandParameter="{Binding ElementName=border}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="2"/>
+                                <RowDefinition Height="14"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Grid.Row="0" Stroke="White" RadiusX="2" RadiusY="2">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding XPath=@icon}"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <TextBlock Grid.Row="2" Text="{Binding XPath=@title}" Foreground="{StaticResource bg_text}" HorizontalAlignment="Center" TextTrimming="WordEllipsis"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource mouseover_bg}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--一周排行列表样式-->
+    <Style x:Key="weekliststyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="border" Height="27" Padding="3" CornerRadius="1" BorderThickness="0,0,0,1">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding Path=DataContext.ShowCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" 
+                                                       CommandParameter="{Binding ElementName=title}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                        <Border.BorderBrush>
+                            <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Color="Yellow" Offset="0"/>
+                                    <GradientStop Color="Yellow" Offset="0.2"/>
+                                    <GradientStop Color="Transparent" Offset="0.4"/>
+                                    <GradientStop Color="Transparent" Offset="0.6"/>
+                                    <GradientStop Color="Yellow" Offset="0.8"/>
+                                    <GradientStop Color="Yellow" Offset="1"/>
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="24"/>
+                                <ColumnDefinition Width="3"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="3"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Width="20" Height="20" Grid.Column="0" Grid.Row="0" BorderBrush="{StaticResource border}" BorderThickness="1" CornerRadius="1" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding XPath=@rank}" Foreground="{StaticResource pop_bg_text}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <Rectangle x:Name="rectangle" Grid.Column="2" Grid.RowSpan="1" RadiusX="1" RadiusY="1"  Height="20" Width="24">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding XPath=@icon}"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <TextBlock x:Name="title" Grid.Column="4" Grid.Row="0" Text="{Binding XPath=@title}" Tag="{Binding XPath=@id}" TextTrimming="WordEllipsis" Foreground="{StaticResource pop_bg_text}" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Column="4" Grid.Row="1" Text="{Binding XPath=@popularity}" Foreground="{StaticResource pop_bg_text}" VerticalAlignment="Center">
+                                <Run Text=" 添加" Foreground="{StaticResource bg_text}"/>
+                            </TextBlock>
+                            <TextBlock x:Name="data_week" Grid.Column="5" Grid.Row="0" Text="{Binding XPath=@popularity}" Foreground="{StaticResource pop_bg_text}" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Height" Value="47"/>
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource mouseover_bg}"/>
+                            <Setter TargetName="rectangle" Property="Grid.RowSpan" Value="2"/>
+                            <Setter TargetName="rectangle" Property="Height" Value="40"/>
+                            <Setter TargetName="rectangle" Property="Width" Value="50"/>
+                            <Setter TargetName="rectangle" Property="RadiusX" Value="2"/>
+                            <Setter TargetName="rectangle" Property="RadiusY" Value="2"/>
+                            <Setter TargetName="data_week" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--TabCloud列表样式-->
+    <Style x:Key="tagCloudTemplate" TargetType="ListBox">
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <!--ListBox的第一种Template，定义ListBox自身外观-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <Border Background="{StaticResource bg_module}">
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerStyle}">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--ListBox的第二种Template，定义子元素的布局容器-->
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapPanel ItemHeight="Auto" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="tabCloudListStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Margin" Value="10,5,0,0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="border" Height="Auto" VerticalAlignment="Center">
+                        <Grid VerticalAlignment="Center">
+                            <Rectangle x:Name="rect" Fill="{StaticResource arrow}" Opacity="0.6" Visibility="Hidden" RadiusX="5" RadiusY="5">
+                                <Rectangle.Effect>
+                                    <BlurEffect Radius="12" />
+                                </Rectangle.Effect>
+                            </Rectangle>
+                            <TextBlock x:Name="text" Text="{Binding Title}" Tag="{Binding ID}" FontSize="{Binding Size}" Foreground="{Binding FontColor}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                       <i:InvokeCommandAction Command="{Binding Path=DataContext.ShowCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}" 
+                                                       CommandParameter="{Binding ElementName=text}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Visibility" TargetName="rect" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

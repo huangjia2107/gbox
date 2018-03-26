@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PreWin"
+  xmlns="http://ibatis.apache.org/mapping"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!--模块配置-->  
+  <alias>
+     <typeAlias alias="Pre_UserInfo" type="DataAccess.Models.UserInfo"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="SelectAllResult" class="Pre_UserInfo">
+      <result property="UserID" column="ID"/>
+      <result property="CardWord" column="Card_Word"/> 
+      <result property="UserName" column="User_Name"/>    
+      <result property="PassWord" column="Pass_Word"/>    
+      <result property="UserPicture" column="User_Picture"/>    
+      <result property="UserMail" column="User_Mail"/>
+      <result property="RegTime" column="Reg_Time"/>
+      <result property="UserStatus" column="User_Status"/>   
+    </resultMap> 
+  </resultMaps> 
+
+  <!--Statement配置-->
+  <statements>
+    <!--========================公共==================================-->
+    <sql id="select-count">
+      select count(1) from userinfo
+    </sql>
+    <!--========================注册==================================-->
+    <!--查看邮箱是否已被注册-->
+    <select id="Mail_IsExist" resultClass="int" parameterClass="string">
+      <include refid="select-count"></include>
+      <![CDATA[where User_Mail=#id#]]>
+    </select>
+    <!--查看账号是否已被注册-->
+    <select id="Card_IsExist" resultClass="int" parameterClass="string">
+      <include refid="select-count"></include>
+      <![CDATA[where Card_Word=#id#]]>
+    </select>
+    <!--执行注册-->
+    <insert id="InsertUser" parameterClass="Pre_UserInfo">
+      INSERT INTO userinfo (Card_Word, User_Name, Pass_Word, User_Picture, User_Mail, Reg_Time)
+      VALUES (#CardWord#, #UserName#, #PassWord#, #UserPicture#, #UserMail#, #RegTime#)
+    </insert>
+    <!--========================登陆==================================-->
+    <!--更具指定账号获取UserInfo类-->
+    <select id="GetUserByCard" resultMap="SelectAllResult" resultClass="Pre_UserInfo" parameterClass="string">
+      select ID,Card_Word,User_Name,Pass_Word,User_Picture,User_Mail,Reg_Time,User_Status from userinfo where Card_Word=#id#
+    </select>
+    <!--更新在线状态-->
+    <update id="UpdateStatusY" parameterClass="string">
+      <![CDATA[ update userinfo set User_Status='Y' where Card_Word=#id# ]]>
+    </update>
+    <!--更新所有信息-->
+    <update id="UpdateUser" parameterClass="Pre_UserInfo">
+      <![CDATA[ update userinfo set Card_Word=#CardWord#,User_Name=#UserName#,Pass_Word=#PassWord#,User_Picture=#UserPicture#,User_Mail=#UserMail#,Reg_Time=#RegTime# where Card_Word=#CardWord#]]>
+    </update>
+  </statements>
+</sqlMap>

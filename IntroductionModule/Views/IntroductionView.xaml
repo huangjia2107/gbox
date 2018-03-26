@@ -1,0 +1,100 @@
+<UserControl x:Class="IntroductionModule.Views.IntroductionView" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" 
+             d:DesignWidth="590" x:Name="introductionView">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--总颜色样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/Themes/Colors.xaml"/>
+                <!--普通按钮样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/ButtonStyle.xaml"/>
+                <!--TextBlock样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/TextBlockStyle.xaml"/>
+                <!--ScrollViewer样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/ScrollViewerStyle.xaml"/>
+                <!--FlipView样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/FlipViewStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerStyle}">
+        <Border BorderBrush="{StaticResource border}" BorderThickness="1" CornerRadius="3" Padding="5,0" Background="{StaticResource bg_module}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="125"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="370"/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Content="返回" Height="30" Width="60" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Style="{StaticResource introductBtnStyle}"
+                    Command="{Binding BackCommand}"/>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Grid.Column="0" RadiusX="3" RadiusY="3" Stroke="White">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="{Binding Icon}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="游戏: " Foreground="White" FontSize="18" Margin="0,5,0,0"><Run Text="{Binding GameName}" Foreground="Yellow"/></TextBlock>
+                        <TextBlock Text="类型: " Foreground="White" FontSize="18" Margin="0,5,0,0"><Run Text="{Binding GameType}" Foreground="Yellow"/></TextBlock>
+                        <TextBlock Text="发布时间: " Foreground="White" FontSize="18" Margin="0,5,0,0"><Run Text="{Binding PublishData}" Foreground="Yellow"/></TextBlock>
+                        <Button x:Name="addGame"  Content="添加该游戏" Height="35" Width="120" FontSize="18" HorizontalAlignment="Left" Margin="0,5,0,0"
+                                IsEnabled="{Binding IsEnabled}"
+                                Style="{StaticResource introductBtnStyle}"
+                                Command="{Binding AddGameCommand}" CommandParameter="{Binding ElementName=introductionView}"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="游戏简介：" Foreground="{StaticResource bg_text}" FontSize="14" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Text="       " TextWrapping="Wrap" TextTrimming="WordEllipsis" LineHeight="27"  FontSize="14" Style="{StaticResource detailTextStyle}">
+                        <Run Text="{Binding GameDetail}"/>
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="6">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="游戏截图：" Foreground="{StaticResource bg_text}" FontSize="14" VerticalAlignment="Center"/>
+                    <Metro:FlipView Grid.Row="2" IsBannerEnabled="False" Style="{StaticResource flipViewStyle}">
+                        <Metro:FlipView.Items>
+                            <Border CornerRadius="2,2,2,2">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding ImgSrc1}"/>
+                                </Border.Background>
+                            </Border>
+                            <Border  CornerRadius="2,2,2,2">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding ImgSrc2}"/>
+                                </Border.Background>
+                            </Border>
+                        </Metro:FlipView.Items>
+                    </Metro:FlipView>
+                </Grid>
+            </Grid>
+        </Border>
+    </ScrollViewer>
+</UserControl>

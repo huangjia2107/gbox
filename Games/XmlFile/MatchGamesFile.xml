@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Data xmlns="">
+  <!--游戏竞技，最新的五个比赛-->
+  <GameType name="match">
+    <Match id="11" title="斗牛比赛" icon="pack://application:,,,/Games;component/Image/Match/斗地主.jpg"/>
+    <Match id="2" title="斗地主乐斗" icon="pack://application:,,,/Games;component/Image/Match/大话西游.jpg"/>
+    <Match id="8" title="英雄联盟大赛" icon="pack://application:,,,/Games;component/Image/Match/大家来找茬.jpg"/>
+    <Match id="9" title="连连看刷分" icon="pack://application:,,,/Games;component/Image/Match/斗地主.jpg"/>
+    <Match id="10" title="找茬决斗" icon="pack://application:,,,/Games;component/Image/Match/轩辕剑.jpg"/>
+  </GameType>
+</Data>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Data xmlns="">
+  <pictype name="Def">
+    <d_image src="pack://application:,,,/Resources;component/Image/UserPic/Def/def.jpg"/>
+  </pictype>
+  <pictype name="Boy">
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_1.jpg"/>
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_2.jpg"/>
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_3.jpg"/>
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_4.jpg"/>
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_5.jpg"/>
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_6.jpg"/>
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_7.jpg"/>
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_8.jpg"/>
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_9.jpg"/>
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_10.jpg"/>
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_11.jpg"/>
+    <b_image src="pack://application:,,,/Resources;component/Image/UserPic/Boy/boy_12.jpg"/>
+  </pictype>
+  <pictype name="Girl">
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_1.jpg"/>
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_2.jpg"/>
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_3.jpg"/>
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_4.jpg"/>
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_5.jpg"/>
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_6.jpg"/>
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_7.jpg"/>
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_8.jpg"/>
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_9.jpg"/>
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_10.jpg"/>
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_11.jpg"/>
+    <g_image src="pack://application:,,,/Resources;component/Image/UserPic/Girl/girl_12.jpg"/>
+  </pictype>
+</Data>

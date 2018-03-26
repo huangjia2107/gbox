@@ -1,0 +1,395 @@
+﻿<UserControl x:Class="CardModule.Views.CardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:b="clr-namespace:Resources.Behaviors;assembly=Resources"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:Metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:Helper="clr-namespace:Resources.Class;assembly=Resources"
+             xmlns:Controls="clr-namespace:Resources.Controls;assembly=Resources"
+             mc:Ignorable="d" d:DesignWidth="270">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--TabControl样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/TabControlStyle.xaml"/>
+                <!--Tile样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/TileStyle.xaml"/>
+                <!--TextBox样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/TextBoxStyle.xaml"/>
+                <!--PasswordBox样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/PwBoxStyle.xaml"/>
+                <!--Button样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/ButtonStyle.xaml"/>
+                <!--ListBox样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/ListBoxStyle.xaml"/>
+                <!--ExpanderStyle样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/ExpanderStyle.xaml"/>
+                <!--总颜色样式定义-->
+                <ResourceDictionary Source="pack://application:,,,/Resources;component/Styles/Themes/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Border BorderBrush="{StaticResource border}" BorderThickness="1" CornerRadius="3" Background="{StaticResource bg_module}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--标题栏-->
+            <Grid Grid.Row="0" Background="{StaticResource tilebtn_bg}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Path Grid.Column="0" Height="14" Width="18" Stretch="Fill" Fill="{StaticResource arrow}" Data="F1 M 18,26L 53.9999,26C 55.6568,26 56.9999,27.3432 56.9999,29L 56.9999,51C 56.9999,52.6568 55.6567,54 53.9999,54L 18,54C 16.3431,54 15,52.6569 15,51L 15,29C 15,27.3432 16.3432,26 18,26 Z M 20,32.9999L 20,34.9999L 49,34.9999L 49,32.9999L 20,32.9999 Z M 20,38.9999L 20,40.9999L 42,40.9999L 42,38.9999L 20,38.9999 Z M 20,44.9999L 20,46.9999L 49,46.9999L 49,44.9999L 20,44.9999 Z M 22,22L 57.9999,22C 59.6568,22 60.9999,23.3432 60.9999,25L 60.9999,47C 60.9999,48.6568 59.6567,50 57.9999,50L 57.9999,28C 57.9999,26.3431 56.6568,25 54.9999,25L 19,25C 19,23.3432 20.3432,22 22,22 Z "/>
+                <TextBlock Grid.Column="2" Text="个人名片" VerticalAlignment="Center" Foreground="{StaticResource bg_text}"/>
+            </Grid>
+            <Grid Grid.Row="1" Background="{StaticResource bg_module}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="64"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="64"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Rectangle Grid.Column="1" Grid.RowSpan="2" Width="64" Height="64" RadiusX="1" RadiusY="1" Stroke="{StaticResource border}">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="{Binding ImgSrc}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Text="{Binding UserName}" Foreground="{StaticResource bg_text}" FontSize="18" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Margin="5,7,0,3" Width="90" />
+                    <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Margin="3,0">
+                        <Grid Width="96">
+                            <Controls:PicBtn x:Name="data_tile" Style="{StaticResource PicBtnStyle}" Title="修改密码" Height="25" Width="90" Background="{StaticResource tilebtn_bg}" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                             Command="{Binding OpenPOPCommand}"
+                                             CommandParameter="{Binding ElementName=data_Popup}">
+                                <Path Fill="{StaticResource arrow}" Height="15" Width="18" Stretch="Fill" Data="F1 M 21.5367,46.0076L 19.1286,56.4429L 17.5,54L 6.86297,54C 7.39373,55.0308 7.97418,56.0319 8.60115,57L 19,57L 19.4333,56.9L 29.3932,54.6016C 28.0768,50.6411 25.8696,47.0904 21.5367,46.0076 Z M 39,53L 69.4259,22.5741C 67.0871,17.8183 63.7005,13.6708 59.5673,10.4327L 31,39L 31,45L 39,45L 39,53 Z M 29,38L 57.8385,9.1615C 56.438,8.19625 54.9638,7.33038 53.4259,6.57407L 24,36L 24,38L 29,38 Z "/>
+                            </Controls:PicBtn>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="88"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="88"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="88"/>
+                    </Grid.ColumnDefinitions>
+                    <Controls:Tile x:Name="success_tile" Title="成就" Style="{StaticResource NormalTile}" Background="{StaticResource tilebtn_bg}"  Count="{Binding Achieve}" Width="88" Height="50"  Grid.Column="0" Margin="0" FontSize="10" CountFontSize="10" 
+                                   Command="{Binding OpenPOPCommand}"
+                                   CommandParameter="{Binding ElementName=success_Popup}">
+                        <Path Margin="0,5" VerticalAlignment="Bottom" Width="35" Height="25" Stretch="Fill" Fill="{StaticResource arrow}" Data="F1 M 38.0333,18.5C 39.4877,18.5 40.6667,19.679 40.6667,21.1333C 40.6667,22.5877 39.4877,23.7667 38.0333,23.7667C 36.579,23.7667 35.4,22.5877 35.4,21.1333C 35.4,19.679 36.579,18.5 38.0333,18.5 Z M 56.4666,26.4C 57.921,26.4 59.1,27.579 59.1,29.0333C 59.1,30.4877 57.921,31.6667 56.4666,31.6667C 55.0123,31.6667 53.8333,30.4877 53.8333,29.0333C 53.8333,27.579 55.0123,26.4 56.4666,26.4 Z M 19.6,26.4C 21.0543,26.4 22.2333,27.579 22.2333,29.0333C 22.2333,30.4877 21.0543,31.6667 19.6,31.6667C 18.1456,31.6667 16.9667,30.4877 16.9667,29.0333C 16.9667,27.579 18.1456,26.4 19.6,26.4 Z M 27.5,40.8833L 31.45,54.05L 44.6167,54.05L 48.5667,40.8833C 41.9833,40.8833 38.0333,34.3 38.0333,34.3C 38.0333,34.3 34.0833,40.8833 27.5,40.8833 Z M 38.0333,25.0833C 38.0333,25.0833 41.9833,46.15 55.15,32.9833L 47.25,58L 28.8167,58C 25.7444,50.1 20.9167,32.9833 20.9167,32.9833C 34.0833,46.15 38.0333,25.0833 38.0333,25.0833 Z M 32,51L 31.25,49L 44.75,49L 44,51L 32,51 Z "/>
+                    </Controls:Tile>
+                    <Controls:Tile x:Name="msg_tile" Title="消息" Style="{StaticResource NormalTile}" Background="{StaticResource tilebtn_bg}"  Count="{Binding Message}" Width="88" Height="50"  Grid.Column="2" Margin="0" FontSize="10" CountFontSize="10" 
+                                   Command="{Binding OpenPOPCommand}"
+                                   CommandParameter="{Binding ElementName=msg_Popup}">
+                        <Path Margin="0,5" VerticalAlignment="Bottom" Width="35" Height="25" Stretch="Fill" Fill="{StaticResource arrow}" Data="F1 M 18,23L 58,23L 58,53L 18,53L 18,23 Z M 22,49L 54,49L 54,31L 38,43L 22,31L 22,49 Z M 23,27L 38,38L 53,27L 23,27 Z "/>
+                    </Controls:Tile>
+                    <Controls:Tile x:Name="friend_tile" Title="好友" Style="{StaticResource NormalTile}" Background="{StaticResource tilebtn_bg}"  Count="{Binding Friend}" Width="88" Height="50"  Grid.Column="5" Margin="0" FontSize="10" CountFontSize="10" 
+                                   Command="{Binding OpenPOPCommand}"
+                                   CommandParameter="{Binding ElementName=friend_Popup}">
+                        <Path Margin="0,5" VerticalAlignment="Bottom" Width="33" Height="25" Stretch="Fill" Fill="{StaticResource arrow}" Data="M16.712435,16.44451 L27.621479,16.44451 C33.076172,16.444443 35.803392,23.703682 35.803392,23.703682 L37.167,28.888887 33.076172,29.925903 C32.621609,25.777777 31.712566,24.740698 31.712566,24.740698 31.712566,24.740698 30.219248,22.46949 29.262655,21.786343 L29.167421,21.722649 30,24.888538 29.187946,25.094391 29.5362,31.047607 C27.463356,31.66256 25.207928,31.999998 22.84889,31.999998 19.973282,31.999998 17.251662,31.498554 14.826999,30.604454 L15.348826,21.629587 C15.292011,21.651194 15.231645,21.682251 15.168392,21.721495 L15.116295,21.756336 14.754367,27.981001 14.611034,27.976315 C13.68084,27.935738 12.769149,27.84264 11.881013,27.700859 L11.602203,27.653997 11.552559,27.906965 C11.444356,28.479664 11.343144,29.148066 11.257913,29.925838 L7.1669999,28.888823 8.5306958,23.703682 C8.5306959,23.703682 11.257913,16.444443 16.712435,16.44451 z M15.000043,0 C17.706521,0 20.044738,1.1992624 21.145898,2.9371321 L21.204801,3.0362108 20.961711,3.0597016 C17.68896,3.4399943 15.181826,5.5898687 15.181826,8.1850276 15.181826,8.5429878 15.229524,8.8924766 15.320351,9.2300177 L15.354006,9.3409095 15.348826,9.1851411 C15.348826,6.3214777 18.401509,3.9999999 22.167044,4 25.932579,3.9999999 28.98526,6.3214777 28.98526,9.1851411 28.98526,11.332938 27.268175,13.175718 24.821011,13.962872 L24.635164,14.018598 24.636236,14.019417 C25.157677,14.436865 25.628138,14.908377 26.047619,15.39685 L26.086969,15.444294 16.545434,15.444294 C11.090913,15.444228 8.3636945,22.703363 8.3636945,22.703363 L7.7514483,25.031261 8.1818258,17.62934 C7.2727818,17.975027 5.4546088,20.740341 5.454609,20.740341 5.4546088,20.740341 4.5454779,21.777407 4.0909126,25.925476 L0,24.888474 1.3636951,19.703406 C1.3636956,19.703406 4.0909128,12.444268 9.5454347,12.444336 L16.865407,12.444336 16.703383,12.287541 C16.179848,11.755164 15.787696,11.143721 15.563486,10.481011 L15.524757,10.353403 15.35091,10.363456 C15.234698,10.367936 15.117719,10.370203 15.000043,10.370203 11.234509,10.370203 8.181826,8.0487576 8.1818258,5.1850686 8.181826,2.3214453 11.234509,0 15.000043,0 z"/>
+                    </Controls:Tile>
+                </Grid>
+
+                <!--Popup控件==密码-->
+                <Popup x:Name="data_Popup" Placement="Right" PlacementTarget="{Binding ElementName=data_tile}" StaysOpen="False" PopupAnimation="Slide"  AllowsTransparency="True">
+                    <Border BorderBrush="{StaticResource border}" BorderThickness="1" CornerRadius="3" Width="230" Background="{StaticResource bg_module}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <!--标题栏-->
+                            <Grid Grid.Row="0" Background="{StaticResource tilebtn_bg}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <Path Grid.Column="0" Height="14" Width="17" Stretch="Fill" Fill="{StaticResource arrow}" Data="F1 M 21.5367,46.0076L 19.1286,56.4429L 17.5,54L 6.86297,54C 7.39373,55.0308 7.97418,56.0319 8.60115,57L 19,57L 19.4333,56.9L 29.3932,54.6016C 28.0768,50.6411 25.8696,47.0904 21.5367,46.0076 Z M 39,53L 69.4259,22.5741C 67.0871,17.8183 63.7005,13.6708 59.5673,10.4327L 31,39L 31,45L 39,45L 39,53 Z M 29,38L 57.8385,9.1615C 56.438,8.19625 54.9638,7.33038 53.4259,6.57407L 24,36L 24,38L 29,38 Z "/>
+                                <TextBlock Grid.Column="2" Text="修改密码" VerticalAlignment="Center" Foreground="{StaticResource bg_text}"/>
+                                <Button Grid.Column="3" Style="{StaticResource picBtnStyle}"  Width="40" ToolTip="提交" HorizontalAlignment="Right" Command="{Binding SetPswCommand}">
+                                    <Path Fill="{StaticResource arrow}" Stretch="Fill" Height="15" Width="13" Data="F1 M 38,20.5833C 42.9908,20.5833 47.4912,22.6825 50.6667,26.046L 50.6667,17.4167L 55.4166,22.1667L 55.4167,34.8333L 42.75,34.8333L 38,30.0833L 46.8512,30.0833C 44.6768,27.6539 41.517,26.125 38,26.125C 31.9785,26.125 27.0037,30.6068 26.2296,36.4167L 20.6543,36.4167C 21.4543,27.5397 28.9148,20.5833 38,20.5833 Z M 38,49.875C 44.0215,49.875 48.9963,45.3932 49.7703,39.5833L 55.3457,39.5833C 54.5457,48.4603 47.0852,55.4167 38,55.4167C 33.0092,55.4167 28.5088,53.3175 25.3333,49.954L 25.3333,58.5833L 20.5833,53.8333L 20.5833,41.1667L 33.25,41.1667L 38,45.9167L 29.1487,45.9167C 31.3231,48.3461 34.483,49.875 38,49.875 Z "/>
+                                </Button>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="8"/>
+                                    <RowDefinition Height="23"/>
+                                    <RowDefinition Height="8"/>
+                                    <RowDefinition Height="23"/>
+                                    <RowDefinition Height="8"/>
+                                    <RowDefinition Height="23"/>
+                                    <RowDefinition Height="8"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="222"/>
+                                    <ColumnDefinition Width="3"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                    <TextBlock Text="密码：" Foreground="{StaticResource bg_text}" VerticalAlignment="Center"/>
+                                    <PasswordBox Width="185" 
+                                                 Helper:PassWordBing.Attach="True" Helper:PassWordBing.Password="{Binding
+                                                 Path=PassWord,
+                                                 Mode=TwoWay,
+                                                 UpdateSourceTrigger=PropertyChanged,
+                                                 ValidatesOnDataErrors=True,
+                                                 ValidatesOnExceptions=True}"  Style="{StaticResource Data_PwBoxStyle}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                                    <TextBlock Text="新密：" Foreground="{StaticResource bg_text}" VerticalAlignment="Center"/>
+                                    <PasswordBox Width="185"
+                                                 Helper:PassWordBing.Attach="True" Helper:PassWordBing.Password="{Binding
+                                                 Path=NewPassWord,
+                                                 Mode=TwoWay,
+                                                 UpdateSourceTrigger=PropertyChanged,
+                                                 ValidatesOnDataErrors=True,
+                                                 ValidatesOnExceptions=True}" Style="{StaticResource Data_PwBoxStyle}"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+                                    <TextBlock Text="确认：" Foreground="{StaticResource bg_text}" VerticalAlignment="Center"/>
+                                    <PasswordBox Width="185"
+                                                 Helper:PassWordBing.Attach="True" Helper:PassWordBing.Password="{Binding
+                                                 Path=ConPassWord,
+                                                 Mode=TwoWay,
+                                                 UpdateSourceTrigger=PropertyChanged,
+                                                 ValidatesOnDataErrors=True,
+                                                 ValidatesOnExceptions=True}" Style="{StaticResource Data_PwBoxStyle}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Popup>
+
+                <!--Popup控件==成就-->
+                <Popup x:Name="success_Popup" Placement="Right" PlacementTarget="{Binding ElementName=success_tile}" StaysOpen="False" PopupAnimation="Slide"  AllowsTransparency="True">
+                    <Border BorderBrush="{StaticResource border}" BorderThickness="1" CornerRadius="3" Height="242" Width="230" Background="{StaticResource bg_module}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="25"/>
+                            </Grid.RowDefinitions>
+                            <!--标题栏-->
+                            <Grid Grid.Row="0" Background="{StaticResource tilebtn_bg}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <Path Grid.Column="0" Height="14" Width="18" Stretch="Fill" Fill="{StaticResource arrow}" Data="F1 M 38.0333,18.5C 39.4877,18.5 40.6667,19.679 40.6667,21.1333C 40.6667,22.5877 39.4877,23.7667 38.0333,23.7667C 36.579,23.7667 35.4,22.5877 35.4,21.1333C 35.4,19.679 36.579,18.5 38.0333,18.5 Z M 56.4666,26.4C 57.921,26.4 59.1,27.579 59.1,29.0333C 59.1,30.4877 57.921,31.6667 56.4666,31.6667C 55.0123,31.6667 53.8333,30.4877 53.8333,29.0333C 53.8333,27.579 55.0123,26.4 56.4666,26.4 Z M 19.6,26.4C 21.0543,26.4 22.2333,27.579 22.2333,29.0333C 22.2333,30.4877 21.0543,31.6667 19.6,31.6667C 18.1456,31.6667 16.9667,30.4877 16.9667,29.0333C 16.9667,27.579 18.1456,26.4 19.6,26.4 Z M 27.5,40.8833L 31.45,54.05L 44.6167,54.05L 48.5667,40.8833C 41.9833,40.8833 38.0333,34.3 38.0333,34.3C 38.0333,34.3 34.0833,40.8833 27.5,40.8833 Z M 38.0333,25.0833C 38.0333,25.0833 41.9833,46.15 55.15,32.9833L 47.25,58L 28.8167,58C 25.7444,50.1 20.9167,32.9833 20.9167,32.9833C 34.0833,46.15 38.0333,25.0833 38.0333,25.0833 Z M 32,51L 31.25,49L 44.75,49L 44,51L 32,51 Z "/>
+                                <TextBlock Grid.Column="2" Text="成就" VerticalAlignment="Center" Foreground="{StaticResource bg_text}"/>
+                                <Button Grid.Column="3" Style="{StaticResource picBtnStyle}"  Width="40" ToolTip="刷新数据" HorizontalAlignment="Right" Command="{Binding FlushACHCommand}">
+                                    <Path Fill="{StaticResource arrow}" Stretch="Fill" Height="15" Width="13" Data="F1 M 38,20.5833C 42.9908,20.5833 47.4912,22.6825 50.6667,26.046L 50.6667,17.4167L 55.4166,22.1667L 55.4167,34.8333L 42.75,34.8333L 38,30.0833L 46.8512,30.0833C 44.6768,27.6539 41.517,26.125 38,26.125C 31.9785,26.125 27.0037,30.6068 26.2296,36.4167L 20.6543,36.4167C 21.4543,27.5397 28.9148,20.5833 38,20.5833 Z M 38,49.875C 44.0215,49.875 48.9963,45.3932 49.7703,39.5833L 55.3457,39.5833C 54.5457,48.4603 47.0852,55.4167 38,55.4167C 33.0092,55.4167 28.5088,53.3175 25.3333,49.954L 25.3333,58.5833L 20.5833,53.8333L 20.5833,41.1667L 33.25,41.1667L 38,45.9167L 29.1487,45.9167C 31.3231,48.3461 34.483,49.875 38,49.875 Z "/>
+                                </Button>
+                            </Grid>
+                            <ListBox Grid.Row="1" Background="{x:Null}" BorderThickness="0"
+                             ItemsSource="{Binding AllAchieves}"
+                             ItemContainerStyle="{StaticResource successliststyle}" 
+                             Style="{StaticResource listtemplate}"
+                             ItemsPanel="{StaticResource ItemsPanelTemplate1}">
+                            </ListBox>
+                            <Border DataContext="{Binding pagingAchieve}" Grid.Row="2" Background="{StaticResource tilebtn_bg}"  BorderBrush="{StaticResource border}" BorderThickness="0,1,0,0" CornerRadius="3">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="40"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0"  Height="25" Width="40" Style="{StaticResource picBtnStyle}" ToolTip="首页" 
+                                            Command="{Binding Path=DataContext.ACH_FPageCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}">
+                                        <Path Fill="{StaticResource arrow}"  Height="13"  Stretch="Fill"  Width="15" Data="M35.971346,0.99999843 L49.667,0.99999843 29.377061,20.999996 49.667,40.999996 35.971346,40.999996 14.666999,20.999996 z M0,0 L12,0 12,42 0,42 z"/>
+                                    </Button>
+                                    <Button Grid.Column="1"  Height="25" Width="40" Style="{StaticResource picBtnStyle}" ToolTip="上一页" 
+                                            Command="{Binding Path=DataContext.ACH_PPageCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}">
+                                        <Path Fill="{StaticResource arrow}"  Height="13"  Stretch="Fill"  Width="12" Data="F1 M 33.6458,38L 49.4792,53.8333L 38.7917,53.8333L 22.1667,38L 38.7917,22.1667L 49.4792,22.1667L 33.6458,38 Z "/>
+                                    </Button>
+                                    <TextBlock Grid.Column="2" Text="{Binding PageAndToltal}" ToolTip="{Binding SumAndToltal}" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" Foreground="{StaticResource bg_text}"/>
+                                    <Button Grid.Column="3"  Height="25" Width="40" Style="{StaticResource picBtnStyle}" ToolTip="下一页" 
+                                            Command="{Binding Path=DataContext.ACH_NPageCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}">
+                                        <Path Fill="{StaticResource arrow}"  Height="13"  Stretch="Fill"  Width="12" Data="F1 M 42.3542,38L 26.5208,53.8333L 37.2083,53.8333L 53.8333,38L 37.2083,22.1667L 26.5208,22.1667L 42.3542,38 Z "/>
+                                    </Button>
+                                    <Button Grid.Column="4"  Height="25" Width="40" Style="{StaticResource picBtnStyle}" ToolTip="末页" 
+                                            Command="{Binding Path=DataContext.ACH_LPageCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}">
+                                        <Path Fill="{StaticResource arrow}"  Height="13"  Stretch="Fill"  Width="15" Data="M0,0.99999836 L13.695654,0.99999836 35,20.999996 13.695654,40.999996 0,40.999996 20.289938,20.999996 z M39,0 L51,0 51,42 39,42 z"/>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Popup>
+
+                <!--Popup控件==消息-->
+                <Popup x:Name="msg_Popup" Placement="Right" PlacementTarget="{Binding ElementName=msg_tile}" StaysOpen="False" PopupAnimation="Slide"  AllowsTransparency="True">
+                    <Border BorderBrush="{StaticResource border}" BorderThickness="1" CornerRadius="3" Height="260" Width="230" Background="{StaticResource bg_module}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="25"/>
+                            </Grid.RowDefinitions>
+                            <!--标题栏-->
+                            <Grid Grid.Row="0" Background="{StaticResource tilebtn_bg}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <Path Grid.Column="0" Height="14" Width="18" Stretch="Fill" Fill="{StaticResource arrow}" Data="F1 M 18,23L 58,23L 58,53L 18,53L 18,23 Z M 22,49L 54,49L 54,31L 38,43L 22,31L 22,49 Z M 23,27L 38,38L 53,27L 23,27 Z "/>
+                                <TextBlock Grid.Column="2" Text="消息" VerticalAlignment="Center" Foreground="{StaticResource bg_text}"/>
+                                <Button Grid.Column="3" Style="{StaticResource picBtnStyle}"  Width="40" ToolTip="获取最新消息" HorizontalAlignment="Right" Command="{Binding FlushMSGCommand}">
+                                    <Path Fill="{StaticResource arrow}" Stretch="Fill" Height="15" Width="13" Data="F1 M 38,20.5833C 42.9908,20.5833 47.4912,22.6825 50.6667,26.046L 50.6667,17.4167L 55.4166,22.1667L 55.4167,34.8333L 42.75,34.8333L 38,30.0833L 46.8512,30.0833C 44.6768,27.6539 41.517,26.125 38,26.125C 31.9785,26.125 27.0037,30.6068 26.2296,36.4167L 20.6543,36.4167C 21.4543,27.5397 28.9148,20.5833 38,20.5833 Z M 38,49.875C 44.0215,49.875 48.9963,45.3932 49.7703,39.5833L 55.3457,39.5833C 54.5457,48.4603 47.0852,55.4167 38,55.4167C 33.0092,55.4167 28.5088,53.3175 25.3333,49.954L 25.3333,58.5833L 20.5833,53.8333L 20.5833,41.1667L 33.25,41.1667L 38,45.9167L 29.1487,45.9167C 31.3231,48.3461 34.483,49.875 38,49.875 Z "/>
+                                </Button>
+                            </Grid>
+                            <ListBox Grid.Row="1" Background="{x:Null}" BorderThickness="0"
+                             ItemsSource="{Binding AllMsgs}"
+                             ItemContainerStyle="{StaticResource msgliststyle}" 
+                             Style="{StaticResource listtemplate}"
+                             ItemsPanel="{StaticResource ItemsPanelTemplate1}">
+                            </ListBox>
+                            <Border DataContext="{Binding pagingMsg}" Grid.Row="2" Background="{StaticResource tilebtn_bg}"  BorderBrush="{StaticResource border}" BorderThickness="0,1,0,0" CornerRadius="3">
+                                <Grid  >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="40"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0"  Height="25" Width="40" Style="{StaticResource picBtnStyle}" ToolTip="首页" 
+                                            Command="{Binding Path=DataContext.MSG_FPageCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}">
+                                        <Path Fill="{StaticResource arrow}"  Height="13"  Stretch="Fill"  Width="15" Data="M35.971346,0.99999843 L49.667,0.99999843 29.377061,20.999996 49.667,40.999996 35.971346,40.999996 14.666999,20.999996 z M0,0 L12,0 12,42 0,42 z"/>
+                                    </Button>
+                                    <Button Grid.Column="1"  Height="25" Width="40" Style="{StaticResource picBtnStyle}" ToolTip="上一页" 
+                                            Command="{Binding Path=DataContext.MSG_PPageCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}">
+                                        <Path Fill="{StaticResource arrow}"  Height="13"  Stretch="Fill"  Width="12" Data="F1 M 33.6458,38L 49.4792,53.8333L 38.7917,53.8333L 22.1667,38L 38.7917,22.1667L 49.4792,22.1667L 33.6458,38 Z "/>
+                                    </Button>
+                                    <TextBlock Grid.Column="2" Text="{Binding PageAndToltal}" ToolTip="{Binding SumAndToltal}" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" Foreground="{StaticResource bg_text}"/>
+                                    <Button Grid.Column="3"  Height="25" Width="40" Style="{StaticResource picBtnStyle}" ToolTip="下一页" 
+                                            Command="{Binding Path=DataContext.MSG_NPageCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}">
+                                        <Path Fill="{StaticResource arrow}"  Height="13"  Stretch="Fill"  Width="12" Data="F1 M 42.3542,38L 26.5208,53.8333L 37.2083,53.8333L 53.8333,38L 37.2083,22.1667L 26.5208,22.1667L 42.3542,38 Z "/>
+                                    </Button>
+                                    <Button Grid.Column="4"  Height="25" Width="40" Style="{StaticResource picBtnStyle}" ToolTip="末页" 
+                                            Command="{Binding Path=DataContext.MSG_LPageCommand,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}}}">
+                                        <Path Fill="{StaticResource arrow}"  Height="13"  Stretch="Fill"  Width="15" Data="M0,0.99999836 L13.695654,0.99999836 35,20.999996 13.695654,40.999996 0,40.999996 20.289938,20.999996 z M39,0 L51,0 51,42 39,42 z"/>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Popup>
+
+                <!--Popup控件==好友-->
+                <Popup x:Name="friend_Popup" Placement="Right" PlacementTarget="{Binding ElementName=friend_tile}" StaysOpen="False" PopupAnimation="Slide"  AllowsTransparency="True">
+                    <Border BorderBrush="{StaticResource border}" BorderThickness="1" CornerRadius="3" Height="300" Width="230" Background="{StaticResource bg_module}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <!--标题栏-->
+                            <Grid Grid.Row="0" Background="{StaticResource tilebtn_bg}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="1"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <Path Grid.Column="0" Height="16" Width="20" Stretch="Fill" Fill="{StaticResource arrow}" Data="M16.712435,16.44451 L27.621479,16.44451 C33.076172,16.444443 35.803392,23.703682 35.803392,23.703682 L37.167,28.888887 33.076172,29.925903 C32.621609,25.777777 31.712566,24.740698 31.712566,24.740698 31.712566,24.740698 30.219248,22.46949 29.262655,21.786343 L29.167421,21.722649 30,24.888538 29.187946,25.094391 29.5362,31.047607 C27.463356,31.66256 25.207928,31.999998 22.84889,31.999998 19.973282,31.999998 17.251662,31.498554 14.826999,30.604454 L15.348826,21.629587 C15.292011,21.651194 15.231645,21.682251 15.168392,21.721495 L15.116295,21.756336 14.754367,27.981001 14.611034,27.976315 C13.68084,27.935738 12.769149,27.84264 11.881013,27.700859 L11.602203,27.653997 11.552559,27.906965 C11.444356,28.479664 11.343144,29.148066 11.257913,29.925838 L7.1669999,28.888823 8.5306958,23.703682 C8.5306959,23.703682 11.257913,16.444443 16.712435,16.44451 z M15.000043,0 C17.706521,0 20.044738,1.1992624 21.145898,2.9371321 L21.204801,3.0362108 20.961711,3.0597016 C17.68896,3.4399943 15.181826,5.5898687 15.181826,8.1850276 15.181826,8.5429878 15.229524,8.8924766 15.320351,9.2300177 L15.354006,9.3409095 15.348826,9.1851411 C15.348826,6.3214777 18.401509,3.9999999 22.167044,4 25.932579,3.9999999 28.98526,6.3214777 28.98526,9.1851411 28.98526,11.332938 27.268175,13.175718 24.821011,13.962872 L24.635164,14.018598 24.636236,14.019417 C25.157677,14.436865 25.628138,14.908377 26.047619,15.39685 L26.086969,15.444294 16.545434,15.444294 C11.090913,15.444228 8.3636945,22.703363 8.3636945,22.703363 L7.7514483,25.031261 8.1818258,17.62934 C7.2727818,17.975027 5.4546088,20.740341 5.454609,20.740341 5.4546088,20.740341 4.5454779,21.777407 4.0909126,25.925476 L0,24.888474 1.3636951,19.703406 C1.3636956,19.703406 4.0909128,12.444268 9.5454347,12.444336 L16.865407,12.444336 16.703383,12.287541 C16.179848,11.755164 15.787696,11.143721 15.563486,10.481011 L15.524757,10.353403 15.35091,10.363456 C15.234698,10.367936 15.117719,10.370203 15.000043,10.370203 11.234509,10.370203 8.181826,8.0487576 8.1818258,5.1850686 8.181826,2.3214453 11.234509,0 15.000043,0 z"/>
+                                <TextBlock Grid.Column="2" Text="好友" VerticalAlignment="Center" Foreground="{StaticResource bg_text}"/>
+                                <Button Grid.Column="3" Style="{StaticResource picBtnStyle}"  Width="40" ToolTip="刷新好友列表" HorizontalAlignment="Right" Command="{Binding FlushFRICommand}">
+                                    <Path Fill="{StaticResource arrow}" Stretch="Fill" Height="15" Width="13" Data="F1 M 38,20.5833C 42.9908,20.5833 47.4912,22.6825 50.6667,26.046L 50.6667,17.4167L 55.4166,22.1667L 55.4167,34.8333L 42.75,34.8333L 38,30.0833L 46.8512,30.0833C 44.6768,27.6539 41.517,26.125 38,26.125C 31.9785,26.125 27.0037,30.6068 26.2296,36.4167L 20.6543,36.4167C 21.4543,27.5397 28.9148,20.5833 38,20.5833 Z M 38,49.875C 44.0215,49.875 48.9963,45.3932 49.7703,39.5833L 55.3457,39.5833C 54.5457,48.4603 47.0852,55.4167 38,55.4167C 33.0092,55.4167 28.5088,53.3175 25.3333,49.954L 25.3333,58.5833L 20.5833,53.8333L 20.5833,41.1667L 33.25,41.1667L 38,45.9167L 29.1487,45.9167C 31.3231,48.3461 34.483,49.875 38,49.875 Z "/>
+                                </Button>
+                            </Grid>
+
+                            <TabControl Grid.Row="1" Style="{StaticResource tabControl}">
+                                <Metro:MetroTabItem Header="好友列表" HeaderFontSize="15" Style="{StaticResource metroTabItem}">
+                                    <Grid>
+                                        <!--好友列表-->
+                                        <ListBox Background="{x:Null}" BorderThickness="0"
+                                            Style="{StaticResource listtemplate}"
+                                            ItemsPanel="{DynamicResource ItemsPanelTemplate1}">
+                                            <ListBoxItem>
+                                                <Expander Header="我的好友" Style="{DynamicResource ExpanderStyle1}" Foreground="White">
+                                                    <ListBox Background="{x:Null}" BorderThickness="0"
+                                                        ItemsSource="{Binding AllFriends}" 
+                                                        ItemContainerStyle="{StaticResource friliststyle}"
+                                                        ItemsPanel="{DynamicResource ItemsPanelTemplate1}"/>
+                                                </Expander>
+                                            </ListBoxItem>
+                                            <ListBoxItem>
+                                                <Expander Header="我的家族" Style="{DynamicResource ExpanderStyle1}" Foreground="White">
+                                                    <ListBox Background="{x:Null}" BorderThickness="0"
+                                                        ItemsSource="{Binding AllFamilys}"
+                                                        ItemContainerStyle="{StaticResource friliststyle}"
+                                                        ItemsPanel="{DynamicResource ItemsPanelTemplate1}">
+                                                    </ListBox>
+                                                </Expander>
+                                            </ListBoxItem>
+                                            <ListBoxItem>
+                                                <Expander Header="黑名单" Style="{DynamicResource ExpanderStyle1}" Foreground="White">
+                                                    <ListBox Background="{x:Null}" BorderThickness="0"
+                                                        ItemsSource="{Binding AllBlacks}" 
+                                                        ItemContainerStyle="{StaticResource friliststyle}"
+                                                        ItemsPanel="{DynamicResource ItemsPanelTemplate1}"/>
+                                                </Expander>
+                                            </ListBoxItem>
+                                        </ListBox>
+                                    </Grid>
+                                </Metro:MetroTabItem>
+                                <Metro:MetroTabItem Header="查找用户" HeaderFontSize="15" Style="{StaticResource metroTabItem}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="23"/>
+                                            <RowDefinition Height="5"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <!--工具栏-->
+                                        <Grid Grid.Row="0" Background="{StaticResource tool_bg}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="40"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox x:Name="seachText" Grid.Column="0" Style="{StaticResource TextSeachStyle}" VerticalContentAlignment="Bottom"/>
+                                            <Button Grid.Column="1" Style="{StaticResource picBtnStyle}"  Width="40" ToolTip="查找好友" HorizontalAlignment="Right" 
+                                                    Command="{Binding SeachFRICommand}"
+                                                    CommandParameter="{Binding Path=Text,ElementName=seachText}">
+                                                <Path Fill="{StaticResource arrow}" Stretch="Fill" Height="15" Width="16" Data="F1 M 39.5639,54.473L 44.627,49.5464C 43.9733,48.4147 43.8398,47.1012 43.8398,45.7004C 43.8398,41.4476 47.0468,38 51.2996,38C 55.5524,38 59,41.4476 59,45.7004C 59,49.9532 55.5524,53.1602 51.2996,53.1602C 49.9706,53.1602 48.7203,53.0641 47.6292,52.4715L 42.527,57.4361C 41.7752,58.1879 40.3157,58.1879 39.5639,57.4361C 38.8121,56.6844 38.8121,55.2248 39.5639,54.473 Z M 51.2996,40.8877C 48.6416,40.8877 46.4868,43.0424 46.4868,45.7004C 46.4868,48.3584 48.6416,50.5131 51.2996,50.5131C 53.9576,50.5131 56.1123,48.3584 56.1123,45.7004C 56.1123,43.0424 53.9576,40.8877 51.2996,40.8877 Z M 36,16C 40.3723,16 43.9167,19.5444 43.9167,23.9167C 43.9167,28.2889 40.3723,31.8333 36,31.8333C 31.6278,31.8333 28.0833,28.2889 28.0833,23.9167C 28.0833,19.5444 31.6278,16 36,16 Z M 28.0833,42.9167C 27.0278,43.4445 24.9167,47.6666 24.9167,47.6666C 24.9167,47.6666 23.8611,49.2499 23.3333,55.5833L 18.5833,53.9999L 20.1667,46.0834C 20.1667,46.0834 23.3333,35 29.6666,35.0001L 42.3332,35.0001C 44.2958,35.0001 45.9544,36.0644 47.3088,37.5334C 44.4493,39.0409 42.5,42.0428 42.5,45.5C 42.5,46.6993 42.7345,47.8437 43.1603,48.89L 38.8431,53.2072C 37.4763,54.574 37.4763,57.2901 38.8431,58.6569C 39.1865,59.0003 38.0589,58.75 36.7917,58.75C 33.4528,58.75 30.2927,57.9845 27.4774,56.6193L 28.0833,42.9167 Z "/>
+                                            </Button>
+                                        </Grid>
+                                        <ListBox Grid.Row="2" Background="{x:Null}" BorderThickness="0"
+                                         ItemContainerStyle="{StaticResource friseachliststyle}"
+                                         Style="{StaticResource listtemplate}"
+                                         ItemsSource="{Binding AllResults}"
+                                         ItemsPanel="{DynamicResource ItemsPanelTemplate1}"/>
+                                    </Grid>
+                                </Metro:MetroTabItem>
+                            </TabControl>
+                        </Grid>
+                    </Border>
+                </Popup>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

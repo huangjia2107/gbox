@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--========================================================背景/文字系列========================================================-->
+    <!--==========================总标题============================-->
+    <sys:String x:Key="title">G-Box</sys:String>
+    <!--==========================模块标题==========================-->
+    <!--登录模块-->
+    <sys:String x:Key="login_text">用户登录</sys:String>
+    <!--Logol模块-->
+    <sys:String x:Key="logol_text">Welcome Here</sys:String>
+    <!--注册模块-->
+    <sys:String x:Key="register_text">注册用户</sys:String>
+    <!--找回密码模块-->
+    <sys:String x:Key="reset_text">重置密码</sys:String>
+    <!--我的游戏模块-->
+    <sys:String x:Key="mygame_text">我的游戏</sys:String>
+    <!--所有游戏模块-->
+    <sys:String x:Key="type_hot">热门</sys:String>
+    <sys:String x:Key="type_chessandcard">棋牌</sys:String>
+    <sys:String x:Key="type_immediate">即时</sys:String>
+    <sys:String x:Key="type_other">其他</sys:String>
+    <!--中间 模块-->
+    <sys:String x:Key="list_publish">最新发布</sys:String>
+    <sys:String x:Key="list_match">比赛活动</sys:String>
+    <!--排行 模块-->
+    <sys:String x:Key="list_week">一周排行</sys:String>
+    <!--搜索 模块-->
+    <sys:String x:Key="list_seach">热门搜索</sys:String>
+    
+
+</ResourceDictionary>
